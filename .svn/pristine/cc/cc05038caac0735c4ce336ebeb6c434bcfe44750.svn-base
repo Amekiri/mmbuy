@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>白菜价--淘宝内部优惠价</title>
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <link rel="stylesheet" href="../../css/baicai/baicai_base.css"/>
+    <link rel="stylesheet" href="../../css/baicai/baicai_style.css"/>
+    <script></script>
+</head>
+<body>
+<!--头部部分-->
+<div class="head" id="#">
+    <div class="back">
+        <a href="../../index.html" class="icon-back"></a>
+    </div>
+    <h1>白菜价-淘宝内部券</h1>
+    <div class="home">
+        <a href="javascript:;" class="icon-app"></a>
+    </div>
+</div>
+<!--主体页面-->
+<div class="body">
+    <!--tabs栏部分-->
+    <div class="bcj-head-cat">
+        <div class="tabs ui-navigator">
+            <ul class="ui-navigator-list">
+               <!--获取tabs栏项放的位置-->
+            </ul>
+        </div>
+        <div class="searchbtn">
+            <div class="icon-search"></div>
+        </div>
+    </div>
+    <!--广告大横幅-->
+    <div class="adver">
+        <img src="../../images/quan_banner_wap.png" alt="白菜价频道"/>
+    </div>
+    <div class="container">
+        <ul class="bcj-list">
+            <!--放商品信息的主体大盒子-->
+            <!--<li class="ui-border-tb">-->
+                <!--<div class="t">-->
+                    <!--<span class="b">[包邮]</span>双十一红包 今日开启-->
+                <!--</div>-->
+
+                <!--<div class="p">-->
+                    <!--<em>¥</em>0.0<del>¥0</del>-->
+                <!--</div>-->
+
+                <!--<div class="pic">-->
+                    <!--<img src="http://seller.manmanbuy.com/ProPic/2016100009230957088.jpg">-->
+                <!--</div>-->
+
+                <!--<div class="y">-->
+                    <!--<a href="http://shop.m.taobao.com/shop/coupon.htm?activityId=27a14c9fc6bb4a48b917d567fcf8f664&amp;sellerId=2246833798" target="_blank">点此领15元优惠券</a>-->
+                <!--</div>-->
+
+                <!--<div class="d">-->
+                    <!--<a biz-itemid="56297410_8818824_54778388" isconvert="1" href="http://s.click.taobao.com/3HlIdQx" target="_blank">下单链接</a>-->
+                <!--</div>-->
+                <!--<div class="bar clearfix"><a href="http://shop.m.taobao.com/shop/coupon.htm?activityId=27a14c9fc6bb4a48b917d567fcf8f664&amp;sellerId=2246833798" class="goquan" target="_blank"></a><i><em style="width:1%;"></em><span>1%</span></i><b>已领82张</b></div>-->
+            <!--</li>-->
+            <!--<li class="ui-border-tb">-->
+                <!--<div class="t">-->
+                    <!--<span class="b">[包邮]</span>双十一红包 今日开启-->
+                <!--</div>-->
+
+                <!--<div class="p">-->
+                    <!--<em>¥</em>0.0<del>¥0</del>-->
+                <!--</div>-->
+
+                <!--<div class="pic">-->
+                    <!--<img src="http://seller.manmanbuy.com/ProPic/2016100009230957088.jpg">-->
+                <!--</div>-->
+
+                <!--<div class="y">-->
+                    <!--<a href="http://shop.m.taobao.com/shop/coupon.htm?activityId=27a14c9fc6bb4a48b917d567fcf8f664&amp;sellerId=2246833798" target="_blank">点此领15元优惠券</a>-->
+                <!--</div>-->
+
+                <!--<div class="d">-->
+                    <!--<a biz-itemid="56297410_8818824_54778388" isconvert="1" href="http://s.click.taobao.com/3HlIdQx" target="_blank">下单链接</a>-->
+                <!--</div>-->
+                <!--<div class="bar clearfix"><a href="http://shop.m.taobao.com/shop/coupon.htm?activityId=27a14c9fc6bb4a48b917d567fcf8f664&amp;sellerId=2246833798" class="goquan" target="_blank"></a><i><em style="width:1%;"></em><span>1%</span></i><b>已领82张</b></div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>
+<!--底部导航-->
+<div class="foot">
+    <a href="javascript:;">登录</a>
+    <a href="javascript:;">注册</a>
+    <a href="#"><img src="../../images/top.jpg" alt=""/>返回顶部</a>
+</div>
+    <!--底部信息栏-->
+<div class="footer">
+    <p>
+        <a href="javascript:;" id="AppDown">手机APP下载</a>
+        <a href="javascript:;">慢慢买手机版</a>
+        --掌上比价平台
+    </p>
+    <p>m.manmanbuy.com</p>
+</div>
+<!--固定浮动回顶位置-->
+<div class="backTop">
+    <a href="#">↑</a>
+</div>
+<!--固定浮动app下载位置-->
+<div class="App">
+    <a href="javascript:;"><img src="../../images/fixtop.png" alt=""/></a>
+</div>
+
+<!--tabs模板-->
+<script type="text/tpl" id="baicai-tabs">
+    {{each list}}
+        <li data-id="{{$value.titleId}}">{{$value.title}}</li>
+    {{ /each }}
+</script>
+<script type="text/tpl" id="baicai-list">
+    {{each list}}
+        <li class="ui-border-tb">
+                <div class="t">
+                    {{#$value.productName}}
+                </div>
+
+                <div class="p">
+                    {{#$value.productPrice}}
+                </div>
+
+                <div class="pic">
+                    {{#$value.productImg}}
+                </div>
+
+                <div class="y">
+                   {{#$value.productCoupon}}
+                </div>
+
+                <div class="d">
+                    {{#$value.productHref}}
+                </div>
+                {{#$value.productCouponRemain}}
+            </li>
+    {{ /each }}
+</script>
+</body>
+<script src="../../lib/jquery/jquery.min.js"></script>
+<script src="../../lib/artTemplate-3.0.1/template.js"></script>
+<script src="../../js/common/util.js"></script>
+<script src="../../js/baicai/baicai_main.js"></script>
+<script src="../../js/baicai/baicai_tabs.js"></script>
+</html>

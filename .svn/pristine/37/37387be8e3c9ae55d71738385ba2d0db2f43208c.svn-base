@@ -1,0 +1,227 @@
+@mycolor:#FF6C63;
+html,body {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+* {
+  box-sizing: border-box;
+}
+.layout {
+  max-width: 640px;
+  min-width: 320px;
+  height: 100%;
+  //布局顶部内边距，依据头部导航
+  padding-top: 44px;
+  position: relative;
+  //loading加载
+  #toTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  //当下拉的时候刷新ajax请求
+
+  .products-anchor {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    img{
+      width: 100%;
+    }
+  }
+  .discount-header {
+    height: 44px;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    max-width: 640px;
+    top: 0;
+    left: 0;
+    .products-top-title {
+      font-family: 'Microsoft yahei';
+      text-align: center;
+      line-height: 44px;
+      width: 100%;
+      background-color: @mycolor;
+      color:white;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .go-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 44px;
+      width: 44px;
+      padding: 5px;
+      .trigger-wrap {
+        position: absolute;
+        left: 6px;
+        top: 12px;
+        width: 30px;
+        height: 30px;
+        .trigger-1 {
+          border: 10px solid transparent;
+          border-right-color: white;
+          position: absolute;
+          right: 10px;
+          top: 0;
+        }
+        .trigger-2 {
+          border: 10px solid transparent;
+          border-right-color: @mycolor;
+          position: absolute;
+          top: 0;
+          right: 8px;
+          z-index: 1;
+        }
+      }
+    }
+    .app-download {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      background: url('../../images/header_app.png') no-repeat 10px 8px;
+      padding: 5px;
+      background-size: 60% 60%;
+    }
+  }
+  .swipe-box {
+    position: relative;
+    .timing {
+      position: absolute;
+      z-index: 2;
+      height: 30px;
+      width: 140px;
+      bottom: 10px;
+      left: 50%;
+      overflow: hidden;
+      transform:translateX(-50%);
+      .timing-img {
+        top: 50%;
+        left: 50%;
+        transform:translate(-50%,-50%);
+        position: absolute;
+        width: 70px;
+        height: 70px;
+      }
+      .timing-txt {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform:translateY(-50%);
+        font-size: 12px;
+        color:silver;
+      }
+    }
+    .layout-products {
+      position: relative;
+      z-index: 3;
+      .products-items {
+        //有可能有1px的误差倒置被挤下去，所以给予超出隐藏；
+        background-color: #fff;
+        overflow: hidden;
+        width: 50%;
+        float: left;
+        border:1px solid silver;
+        border-right: none;
+        border-bottom: none;
+        padding: 15px;
+        .products-a {
+          display: block;
+          width: 100%;
+          text-align: center;
+          img {
+            width: 140px;
+            height: 140px;
+          }
+          .products-txt-1 {
+            //单行省略号。。。
+            //text-overflow: ellipsis;
+            //overflow: hidden;
+            //white-space: nowrap;
+            //多行省略号
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            height: 60px;
+            font-size: 22px;
+            line-height: 30px;
+            color:#333333;
+            font-family: 'Microsoft yahei';
+            text-align: left;
+          }
+          .products-price {
+            font-size: 20px;
+            line-height: 28px;
+            color:@mycolor;
+            //单行省略号。。。
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: left;
+
+          }
+          .products-txt-2 {
+            font-size: 16px;
+            padding-top: 12px;
+            color:silver;
+            text-align: left;
+
+          }
+        }
+      }
+      .products-items:nth-last-of-type(-n+2){
+        border-bottom: 1px solid silver;
+      }
+    }
+  }
+
+  //页面底部
+  footer{
+    margin-top: 10px;
+    >.function{
+      height: 34px;
+      margin-top: 10px;
+      >a {
+        line-height: 34px;
+        text-align: center;
+        float: left;
+        box-sizing: border-box;
+        border: 1px solid #c4c4c4;
+        border-left: 0 none;
+        font-size: 12px;
+      }
+      >a:nth-of-type(1){
+        width: 30%;
+      }
+      >a:nth-of-type(2){
+        width: 30%;
+      }
+      >a:nth-of-type(3){
+        width: 40%;
+        border-right: none;
+
+      }
+    }
+    >.interview {
+      margin-top: 20px;
+      >p{
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+        >span{
+          color: red;
+        }
+
+      }
+
+    }
+  }
+
+}

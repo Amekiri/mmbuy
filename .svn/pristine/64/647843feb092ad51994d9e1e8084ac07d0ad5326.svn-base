@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>白菜价--淘宝内部优惠价</title>
+    <link rel="stylesheet" href="../css/common/base.css"/>
+    <link rel="stylesheet" href="../css/baicai/baicai_base.css"/>
+    <link rel="stylesheet" href="../css/baicai/baicai_style.css"/>
+    <script></script>
+</head>
+<body>
+<!--头部部分-->
+<div class="head">
+    <div class="back">
+        <a href="" class="icon-back"></a>
+    </div>
+    <h1>白菜价-淘宝内部券</h1>
+    <div class="home">
+        <a href="" class="icon-app"></a>
+    </div>
+</div>
+<!--主体页面-->
+<div class="body">
+    <div class="bcj-head-cat">
+        <div class="tabs ui-navigator">
+            <ul class="ui-navigator-list">
+                <li class="ui-state-active"><a href="javascript:;">全部</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+                <li><a href="javascript:;">热销</a></li>
+            </ul>
+        </div>
+        <div class="searchbtn">
+            <div class="icon-search"></div>
+        </div>
+    </div>
+</div>
+<!--底部导航-->
+<div class="nav"></div>
+<!--底部App广告-->
+<div class="foot"></div>
+    <!--底部信息栏-->
+<div class="footer"></div>
+<!--固定浮动app下载位置-->
+<div></div>
+</body>
+<script src="../js/baicai/baicai_main.js"></script>
+<script src="../js/common/util.js"></script>
+<script src="../js/baicai/baicai_tabs.js"></script>
+</html>

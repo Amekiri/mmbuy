@@ -1,0 +1,103 @@
+/**
+ * Created by Administrator on 2017/3/7 0007.
+ */
+//获取dom元素
+var tabs = document.querySelector(".tabs");
+var tabsWidth = tabs.offsetWidth;
+//获取滑动的菜单项
+var ulBox = tabs.querySelector('ul');
+var ulBoxWidth = ulBox.offsetWidth;
+//获取所有li标签
+var lis = ulBox.querySelectorAll('li');
+
+//定义弹簧区间
+var maxX = 0;//静止状态下最大x值
+var maxBounceX = maxX + 100;//弹簧状态下最大X值
+var minX = tabsWidth - ulBoxWidth - 50;//静止状态下的最小x
+var minBounceX = minX - 150;
+
+//一些封装
+var openTransition = function () {
+    ulBox.style.transition = "transform .2s";
+}
+var closeTransition = function () {
+    ulBox.style.transition = 'none';
+}
+var setTransform = function (distanceX) {
+    ulBox.style.transform = "translateX("+distanceX+"px)";
+}
+
+//实现滑动
+var startX = 0;
+var moveX = 0;
+var distanceX = 0;
+//创建变量来记录当前已经偏移的距离
+var currentX = 0;
+ulBox.addEventListener("touchstart", function (e) {
+    startX = e.touches[0].clientX;
+});
+ulBox.addEventListener("touchmove", function (e) {
+    moveX = e.touches[0].clientX;
+    distanceX = moveX - startX;
+    //判断如果超出指定的最大弹簧区间,则当前滑动操作不执行
+    if(currentX+distanceX > maxBounceX || currentX+distanceX < minBounceX){
+        console.log("超出区间")
+        return;
+    }
+    //清除过渡
+    closeTransition();
+    //设置偏移
+    setTransform(currentX+distanceX);
+});
+ulBox.addEventListener("touchend", function (e) {
+    //判断当前滑动的距离
+    if(currentX+distanceX > maxX){
+        //重置位置到静止状态最大值
+        currentX = maxX;
+        //回到指定的位置
+        openTransition();
+        setTransform(maxX);
+    }else if(currentX+distanceX < minX){
+        //重置位置到静止状态下最小值
+        currentX = minX;
+        //回到指定位置
+        openTransition();
+        setTransform(minX);
+    }else{
+        currentY+=distanceX;
+    }
+});
+
+/*在移动端，添加事件可以为父元素来添加，通过e.target值来获取到当前响应事件的子元素*/
+for(var i=0;i<lis.length;i++){
+    //为li添加索引
+    lis[i].index=i;
+}
+util.tap(ulBox, function (e) {
+    //清除所有li的active样式
+    for(var i=0;i<lis.length;i++){
+        lis[i].classList.remove("ui-state-active");
+    }
+    var li= e.target.parentNode;
+    //获取li宽度
+    var liWidth = li.offsetWidth;
+    //为当前被点击的li标签添加active样式
+    li.classList.add("ui-state-active");
+    //设置偏移
+    var index = e.target.parentNode.index;
+    //判断当前需要偏移的距离是否超出指定的区间
+    if(-index*liWidth < minX){
+        currentX = minX;
+        openTransition();
+        setTransform(minX);
+        return false;
+    }else{
+        currentX = -index*liWidth;
+        //开启过渡
+        openTransition();
+        //设置偏移
+        setTransform(-index*liWidth);
+    }
+});
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>慢慢买</title>
+    <link rel="stylesheet" href="./css/common/base.css"/>
+    <link rel="stylesheet" href="./css/index/index.css"/>
+</head>
+<body>
+<div class="layout">
+    <!--头部-->
+    <header>
+        <!-- 锚点-->
+        <span id="toTop"></span>
+        <a href="#toTop"><img src="./images/fixtop.png" alt=""/></a>
+        <h1 class="fl logo">
+            <a href="javascript:;">
+                <img src="./images/header_logo.png" alt="慢慢买"/>
+            </a>
+        </h1>
+        <div class="fr download">
+            <a href="javascript:;">
+                <img src="./images/header_app.png" alt="下载按钮"/>
+            </a>
+        </div>
+    </header>
+    <!-- 搜索框-->
+    <div class="search">
+        <input type="text" placeholder="请输入你比价的商品"/>
+        <input type="button" value="搜索"/>
+    </div>
+    <!--内容部分-->
+    <div class="main">
+        <!--导航栏-->
+        <nav>
+            <ul class="clearfix nav-li-list">
+                <!-- li标签的坑-->
+            </ul>
+        </nav>
+        <!--折扣商品栏-->
+        <section class="discount">
+            <div class="top">
+                <span>超值折扣推荐</span>
+                <img src="images/more.png" alt=""/>
+            </div>
+            <div class="dcProduct">
+                <ul>
+                    <!-- 打折商品的坑 -->
+                </ul>
+            </div>
+        </section>
+        <!--更多优惠-->
+        <section class="moreMS">
+            <!-- 跳转到省钱控页面-->
+            <a href="javascript:;">
+                更多优惠信息>>
+            </a>
+        </section>
+    </div>
+    <!--底部-->
+    <footer>
+        <div class="top">
+            <span>品牌排行</span>
+            <img src="images/more.png" alt=""/>
+        </div>
+        <div class="function">
+            <a href="">
+                登录
+            </a>
+            <a href="">
+                注册
+            </a>
+            <a href="#toTop">
+                返回顶部
+            </a>
+        </div>
+        <div class="interview">
+            <p><span>手机app下载</span> 慢慢买手机版--掌上比价平台</p>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </footer>
+</div>
+
+<script type="text/html" id="navListtemp">
+    {{each result as val i}}
+    <li>
+        <a href="./html/{{getUrlname(val.titlehref)}}/{{val.titlehref}}">
+            {{#val.img}}
+            <p>{{val.name}}</p>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script type="text/html" id="dcproductemp">
+    {{each result as val i}}
+    <li>
+        <a href="./html/CountryDiscount/CountryDiscount-ly-2.html?productid={{val.productId-20}}">
+            <div class="left fl">
+                {{#val.productImgSm}}
+            </div>
+            <div class="right">
+            <p>{{val.productName}} <span class="price">{{val.productPinkage}}</span></p>
+            <span class="productfrom">{{val.productFrom}}<span>&nbsp;</span>|</span>
+            <span class="producttime">{{val.productTime}}</span>
+            <span class="iconfont">
+            </span>
+            <span class="productComCount">{{getNumber1(val.productComCount)}}</span>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script src="./lib/jquery/jquery.js"></script>
+<script src="./lib/artTemplate-3.0.1/template.js"></script>
+<script src="./js/index/index.js"></script>
+</body>
+</html>

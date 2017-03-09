@@ -1,0 +1,138 @@
+/**
+ * Created by Administrator on 2017/3/7.
+ */
+$(function () {
+    var categoryid = util.getQueryString("categoryid") || 1;
+    $.get("http://139.199.157.195:9090/api/getcategorybyid",{
+        categoryid:categoryid
+    }, function (data) {
+        console.log()
+        $(".filterBox span:nth-of-type(2)").after(template("filterTemp", {list:data.result}))
+    });
+    //默认渲染页面
+    $.get("http://139.199.157.195:9090/api/getproductlist",{
+        categoryid:categoryid,
+        pageid:1
+    }, function (data) {
+        console.log()
+        $(".productList ul").html(template("productlistTemp", {list:data.result}));
+        var pagesize = data.pagesize;
+        var totalCount = data.totalCount;
+        var pagetotal = Math.ceil(totalCount/pagesize);
+        var arr = [],a=1;
+        for(var i=0;i<pagetotal;i++){
+            arr.push({index:a});
+            a++;
+        };
+        //渲染三级菜单
+        $(".selectPage select").html(template("selectTemp", {list:arr}));
+
+        //改变页数发送请求改变页面内容
+        $("#pageNum").on("change", function () {
+            ajaxproductlist();
+        });
+        //点击上下按钮翻页
+        $("#prev").click(function(){
+            var selectVal = $("#pageNum option:selected").val();
+            selectVal--;
+            $("header [href='#toTop']").trigger("click");
+            if(selectVal>0){
+                updateProductlist(selectVal);
+            }
+        });
+        $("#next").click(function(){
+            var selectVal = $("#pageNum option:selected").val();
+            selectVal++;
+            if(selectVal<=$("#pageNum option").length){
+               updateProductlist(selectVal);
+            }
+        })
+    });
+    //封装换页的方法
+    function updateProductlist(selectVal){
+        $("#pageNum option:selected").removeAttr("selected");
+        $("#pageNum option")[selectVal-1].selected = true;
+        ajaxproductlist();
+    };
+    //封装请求的方法
+    function ajaxproductlist(){
+        $.ajax({
+            type:"get",
+            url:"http://139.199.157.195:9090/api/getproductlist",
+            data:$(".form-data").serialize()+"&categoryid="+categoryid,
+            success: function (data) {
+                $(".productList ul").html(template("productlistTemp", {list:data.result}));
+            }
+        })
+    }
+
+    productFiltrate();
+    function productFiltrate() {
+
+
+
+        $('.bg-filtrate').on('click', function(){
+            $('.filtrate').css({
+                'transform': 'translateX(-100%)'
+            });
+            $('.bg-filtrate').hide();
+        });
+
+        $('.filtrate-btn').on('click', function(ev) {
+            $('.bg-filtrate').show();
+            $('.filtrate').css({
+                'transform': 'translateX(0)'
+        });
+            ev.stopPropagation();
+            $('.close').on('click', function() {
+                $('.filtrate').css({
+                    'transform': 'translateX(-100%)'
+                });
+                $('.bg-filtrate').hide();
+            });
+
+
+
+            $.get('http://139.199.157.195:9090/api/getcategorytitle', function(data) {
+                $('.filtrate').append(template('filtrate-tpl', {list:data.result}));
+                //$('.filtrate').append(11111);
+                //console.log(template('filtrate-tpl', {list:data.result}));
+                //console.log(template('filtrate-tpl', data));
+                //$('.filtrate').html(data);
+
+                //点击打开当前列表 收起其余列表 以及切换下拉箭头的背景图片
+                $('.pro-brief').on('touchend', function () {
+                    //$(this).next().slideToggle().siblings('.pro-particular').hide();
+
+                    $(this).next().find('li:nth-of-type(n+4)').nextAll().toggle();
+                    console.log($(this).next().find('li:nth-of-type(n+4)'));
+                })
+
+                //获取二级列表需要传入一级列表的id 所以先把1级列表的id存在它的自定义属性里
+                //获取数据时 点击当前1级列表 获取自定义属性里的id 再去发送ajax请求获取数据 渲染到当前点击的列表下
+                //但这么做有两个弊端 第一必须每次点击的时候都发送ajax请求
+                //第二点击后返回数据时会延迟几秒 造成卡顿 不利于用户体验
+                //var titleid = $(this).attr('data-id');
+                //console.log(titleid);
+                //$.get('http://139.199.157.195:9090/api/getcategory', {titleid: titleid}, function(data) {
+                //    $('.pro-particular').html(template('pro-particular-tpl', data));
+                //})
+                //});
+
+
+                //先遍历所有数据 根据每一个数据里面的titleId去发送请求 获取该id的数据 一次性渲染到页面中
+
+                var objData = {};
+                for (var i = 0; i < data.result.length; i++) {
+                    (function (titleid) {
+                        $.get('http://139.199.157.195:9090/api/getcategory', {titleid: titleid}, function (data) {
+                            objData[titleid] = data.result;
+                            $('.pro-particular')[titleid].innerHTML = template('filtrate-list-tpl', {list: objData[titleid]});
+                        })
+                    })(data.result[i].titleId);
+                }
+
+            })
+        });
+    }
+})

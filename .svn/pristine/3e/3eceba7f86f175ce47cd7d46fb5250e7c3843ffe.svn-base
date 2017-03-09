@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+}
+.layout {
+  width: 100%;
+}
+.layout > header {
+  width: 100%;
+  height: 50px;
+  background-color: #ff841d;
+}
+.layout > header > a {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  z-index: 999;
+}
+.layout > header > a > img {
+  width: 60px;
+}
+.layout > header > h1 {
+  width: 70%;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  display: block;
+}
+.layout > header > h1 > a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin-top: -4px;
+}
+.layout > header > h1 > a > img {
+  height: 100%;
+}
+.layout > header > .download {
+  height: 48px;
+  width: 48px;
+  padding: 7px;
+}
+.layout > header > .download > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.layout > header > .download > a > img {
+  width: 100%;
+}
+.layout > .search {
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  margin: 1px 0;
+}
+.layout > .search > input:first-of-type {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  padding-left: 30px;
+  border-radius: 15px;
+  background-color: #f1f1f1;
+}
+.layout > .search > input:last-of-type {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 63px;
+  height: 30px;
+  background-color: #ff841d;
+  color: #FFFFFF;
+  border-radius: 15px;
+}
+.layout > .main {
+  width: 100%;
+}
+.layout > .main > .filterBox {
+  height: 40px;
+  background-color: #edf1ef;
+  line-height: 40px;
+  padding-left: 10px;
+  background-image: linear-gradient(to bottom, #fffdf5, #f7f5ed 100%);
+}
+.layout > .main > .filterBox > a,
+.layout > .main > .filterBox span {
+  font-size: 14px;
+  color: #5a5a5a;
+}
+.layout > .main > .filterBox > button {
+  float: right;
+  height: 30px;
+  width: 60px;
+  background-color: #dddddd;
+  margin-right: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, #e3e5d4, #f7f5ed 50%, #e3e5d4 100%);
+}
+.layout > .main > .productList {
+  width: 100%;
+}
+.layout > .main > .productList > ul {
+  width: 100%;
+  background-color: #fff;
+}
+.layout > .main > .productList > ul > li {
+  border-bottom: 1px solid #e0e0e0 ;
+  width: 100%;
+  padding: 14px 8px;
+}
+.layout > .main > .productList > ul > li > a {
+  display: block;
+  width: 100%;
+}
+.layout > .main > .productList > ul > li > a img {
+  width: 100px;
+  height: 100px;
+}
+.layout > .main > .productList > ul > li > a > .right {
+  overflow: hidden;
+  padding-left: 10px;
+  height: 100px;
+}
+.layout > .main > .productList > ul > li > a > .right > .name {
+  font-family: '����';
+  line-height: 25px;
+}
+.layout > .main > .productList > ul > li > a > .right > .price {
+  color: #ff6c00;
+  font-weight: bold;
+}
+.layout > .main > .productList > ul > li > a > .right > p:nth-of-type(3) {
+  margin-left: 10px;
+}
+.layout > .main > .productList > ul > li > a > .right > p:nth-of-type(3) > .productQuote,
+.layout > .main > .productList > ul > li > a > .right > p:nth-of-type(3) .productCom {
+  font-size: 12px;
+  color: #a1a1a1 ;
+}
+.layout > .main > .selectPage {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.layout > .main > .selectPage > form > div {
+  float: left;
+  width: 33%;
+  box-sizing: border-box;
+  height: 40px;
+}
+.layout > .main > .selectPage > form input,
+.layout > .main > .selectPage > form select {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #dddddd;
+  height: 35px;
+  padding: 0 15px;
+  background-color: #dddddd;
+  transform: translateY(10px);
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom, #e3e5d4, #f7f5ed 50%, #e3e5d4 100%);
+}
+.layout .bg-filtrate {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.layout .filtrate {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 99;
+  padding: 15px;
+  overflow-y: scroll;
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+.layout .filtrate .close {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 10px;
+  top: 10px;
+}
+.layout .filtrate > p {
+  text-align: center;
+  font-size: 22px;
+  padding-bottom: 30px;
+}
+.layout .filtrate .pro-brief {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  padding-left: 8px;
+}
+.layout .filtrate .pro-particular {
+  padding: 0 20px 0 0;
+}
+.layout .filtrate .pro-particular li {
+  width: 33.33%;
+  float: left;
+  text-align: center;
+  height: 30px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+.layout .filtrate .pro-particular li a {
+  display: block;
+  background-color: #eee;
+  border-radius: 4px;
+  line-height: 30px;
+}
+.layout .filtrate .pro-particular li:nth-of-type(n+4) {
+  display: none;
+}
+.layout footer {
+  margin-top: 10px;
+}
+.layout footer > .function {
+  height: 34px;
+  margin-top: 10px;
+}
+.layout footer > .function > a {
+  line-height: 34px;
+  text-align: center;
+  float: left;
+  box-sizing: border-box;
+  border: 1px solid #c4c4c4;
+  border-left: 0 none;
+  font-size: 12px;
+}
+.layout footer > .function > a:nth-of-type(1) {
+  width: 30%;
+}
+.layout footer > .function > a:nth-of-type(2) {
+  width: 30%;
+}
+.layout footer > .function > a:nth-of-type(3) {
+  width: 40%;
+  border-right: none;
+}
+.layout footer > .interview {
+  margin-top: 20px;
+}
+.layout footer > .interview > p {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+.layout footer > .interview > p > span {
+  color: red;
+}

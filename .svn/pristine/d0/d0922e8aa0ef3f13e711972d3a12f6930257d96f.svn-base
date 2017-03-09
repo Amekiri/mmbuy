@@ -1,0 +1,341 @@
+@mycolor:#FF6C63;
+* {
+  box-sizing: border-box;
+}
+html,body {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.layout {
+  padding-top: 44px;
+  max-width: 640px;
+  min-width: 320px;
+  height: 100%;
+  #toTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .products-anchor {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    z-index: 100;
+    img{
+      width: 100%;
+    }
+  }
+  .discount-header {
+    height: 44px;
+    position: fixed;
+    width: 100%;
+    max-width: 640px;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    .products-top-title {
+      font-family: 'Microsoft yahei';
+      text-align: center;
+      line-height: 44px;
+      width: 100%;
+      background-color: @mycolor;
+      color:white;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .go-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 44px;
+      width: 44px;
+      padding: 5px;
+      .trigger-wrap {
+        position: absolute;
+        left: 6px;
+        top: 12px;
+        width: 30px;
+        height: 30px;
+        .trigger-1 {
+          border: 10px solid transparent;
+          border-right-color: white;
+          position: absolute;
+          right: 10px;
+          top: 0;
+        }
+        .trigger-2 {
+          border: 10px solid transparent;
+          border-right-color: @mycolor;
+          position: absolute;
+          top: 0;
+          right: 8px;
+          z-index: 1;
+        }
+      }
+    }
+    .app-download {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      background: url('../../images/header_app.png') no-repeat 10px 8px;
+      padding: 5px;
+      background-size: 60% 60%;
+    }
+  }
+  //广告栏以及关闭
+  .products-banner {
+    height: 40px;
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    img {
+      height: 40px;
+      width: 100%;
+      display: block;
+    }
+    .timing-X-close {
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: rgba(242,242,242,0.4);
+      color: #4d4d4d;
+      right: 10px;
+      top: 10px;
+      animation:bannerX 2s infinite;
+      transform-origin: center center;
+    }
+    //给关闭按钮增加一个动画
+    @keyframes bannerX {
+      0% { transform:rotate(0deg) scale(1,1) }
+      50% { transform:rotate(180deg) scale(1.2,1.2) }
+      100% { transform:rotate(360deg) scale(1,1) }
+    }
+  }
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  //兼容谷歌的动画
+  @-webkit-keyframes zoomOutDown {
+    40% {
+      opacity: 1;
+      -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+      transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+      -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+      animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+
+    to {
+      opacity: 0;
+      -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);
+      transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);
+      -webkit-transform-origin: center bottom;
+      transform-origin: center bottom;
+      -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+  }
+  @keyframes zoomOutDown {
+    40% {
+      opacity: 1;
+      -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+      transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+      -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+      animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+
+    to {
+      opacity: 0;
+      -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);
+      transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);
+      -webkit-transform-origin: center bottom;
+      transform-origin: center bottom;
+      -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+  }
+  .zoomOutDown {
+    -webkit-animation-name: zoomOutDown;
+    animation-name: zoomOutDown;
+  }
+
+    .swipe-wrap {
+      //overflow: hidden;
+      //height: 100%;
+      position: relative;
+      .timing {
+        position: absolute;
+        z-index: 2;
+        height: 30px;
+        width: 140px;
+        bottom: 10px;
+        left: 50%;
+        overflow: hidden;
+        transform:translateX(-50%);
+        .timing-img {
+          top: 50%;
+          left: 50%;
+          transform:translate(-50%,-50%);
+          position: absolute;
+          width: 70px;
+          height: 70px;
+        }
+        .timing-txt {
+          position: absolute;
+          right: 4px;
+          top: 50%;
+          transform:translateY(-50%);
+          font-size: 12px;
+          color:silver;
+        }
+      }
+      .swipe-box {
+        position: relative;
+        background-color: #fff;
+        z-index: 3;
+        //padding-top: 100px;
+        padding-bottom: 100px;
+        .products-title {
+          font-size: 20px;
+          line-height: 40px;
+          font-family: 'Microsoft yahei';
+          padding: 20px;
+          font-weight: 500;
+        }
+        .products-txt-title {
+          color:silver;
+          line-height: 34px;
+          font-size: 16px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .products-txt-img {
+          padding: 20px;
+          line-height: 30px;
+          //.products-txt-left {
+          //  //float: left;
+          //  width: 66.66%;
+          //  padding-right: 10px;
+          //  line-height: 30px;
+          //}
+          .products-right-img {
+            //overflow: hidden;
+            float: right;
+            width: 33.33%;
+            padding-left: 10px;
+            > img {
+              width: 100%;
+            }
+          }
+        }
+        .products-bigImg {
+          padding: 20px;
+          text-align: center;
+          img {
+            width: 100%;
+            vertical-align: middle;
+          }
+        }
+        .products-buy {
+          padding: 20px;
+          .btn-buy {
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            font-size: 16px;
+            color:white;
+            background-color: @mycolor;
+            border-radius: 4px;
+            display: block;
+          }
+        }
+        .img-erweima{
+          padding: 20px;
+          .erweima {
+            width: 100%;
+          }
+        }
+        .products-comment {
+          .tit {
+            padding-left: 15px;
+            font-size: 14px;
+          }
+          .reply {
+            padding: 20px;
+            .form {
+              border: 2px solid silver;
+              padding-top: 4px;
+              textarea {
+                width: 100%;
+                outline: none;
+                padding-top: 10px;
+                padding-left:10px;
+                padding-right:10px;
+              }
+            }
+            .ctrl {
+              border-top: 1px solid silver;
+              height: 26px;
+              input {
+                float: right;
+                padding: 5px 15px;
+                background-color: @mycolor;
+                color:white;
+                border:1px solid silver;
+              }
+            }
+          }
+        }
+      }
+    }
+  //页面底部
+  footer{
+    margin-top: 10px;
+    >.function{
+      height: 34px;
+      margin-top: 10px;
+      >a {
+        line-height: 34px;
+        text-align: center;
+        float: left;
+        box-sizing: border-box;
+        border: 1px solid #c4c4c4;
+        border-left: 0 none;
+        font-size: 12px;
+      }
+      >a:nth-of-type(1){
+        width: 30%;
+      }
+      >a:nth-of-type(2){
+        width: 30%;
+      }
+      >a:nth-of-type(3){
+        width: 40%;
+        border-right: none;
+
+      }
+    }
+    >.interview {
+      margin-top: 20px;
+      >p{
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+        >span{
+          color: red;
+        }
+
+      }
+
+    }
+  }
+  }

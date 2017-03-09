@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>慢慢买比价网--手机版</title>
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <link rel="stylesheet" href="../../less/allCates.css"/>
+    <link rel="stylesheet" href="../../css/allCategories/allCates_index.css"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css"/>
+
+</head>
+<body>
+<div class="layout">
+    <!-- 头部和搜索框开始-->
+    <div class="head clearfix">
+        <h1 class="fl logo">
+            <a href="#">
+                <img src="../../imgs/header_logo.png" alt=""/>
+            </a>
+        </h1>
+        <div class="fr appdown">
+            <a href="#">
+                <img src="../../imgs/header_app.png" alt=""/>
+            </a>
+        </div>
+    </div>
+        <div class="search1 clearfix">
+            <div  class="searchtxt" >
+                <input type="search"name="key" id="" placeholder="请输入你想比价的商品"/>
+            </div>
+            <div class="searchbtn" >
+                <input type="submit"  value="搜索"/>
+            </div>
+        </div>
+        <!-- 导航栏列表开始-->
+    <div id="brandTitle" >
+        <!-- 这是标题列表的坑-->
+       <!-- <div class="brandTitle">
+            <span >菜单路径的坑</span>><span >这是导航</span>
+        </div>
+        <div class="brandT-List-top">哪个牌子好</div>
+        <ul>
+            <li>
+                <a href="#">pzdh</a>
+                <span class="count">30天全网销售量：件</span>
+                <span brandTitleId='{{$value.brandId}}'></span>
+                <span categoryId='{{$value.categoryId}}'></span>
+            </li>
+        </ul>
+
+-->
+        <!--<div class="brandT-List">-->
+        <!--&lt;!&ndash; 这是一级标题的坑&ndash;&gt;-->
+    <!--</div>-->
+    </div>
+</div>
+
+<!--这是一级标题的模板-->
+<script type="text/tpl" id="brandTitle1-tpl">
+{{each list }}
+<div class="brandTitle">
+            <span>{{$value.brandTitle}}</span>
+        </div>
+    <div class="brandT-List-top">热门品牌排行</div>
+        <ul>
+            <li>
+                <a href="#">{{$value.brandTitle}}</a>
+               <span brandTitleId='{{$value.brandTitleId}}'></span>
+               <span categoryId='{{$value.categoryId}}'></span>
+            </li>
+        </ul>
+        {{/each}}
+</script>
+
+<!--这是二级标题的模板-->
+<script type="text/tpl" id="brandTitle2-tpl">
+{{each list}}
+ <div class="brandTitle">
+            <span>{{$value.brandTitle}}</span><span>{{$value.brandName}}</span>
+        </div>
+    <div class="brandT-List-top">{{title1.brandTitle}}哪个牌子好</div>
+        <ul>
+            <li>
+                <a href="#">{{$value.brandName}}</a>
+                <span class="count">30天全网销售量：{{$value.brandInfo}}件</span>
+               <span brandTitleId='{{$value.brandId}}'></span>
+               <span categoryId='{{$value.categoryId}}'></span>
+            </li>
+        </ul>
+        {{/each}}
+</script>
+
+<script src="../../lib/jquery/jquery.min.js"></script>
+<script src=".../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/artTemplate-3.0.1/template.js"></script>
+</body>
+</html>

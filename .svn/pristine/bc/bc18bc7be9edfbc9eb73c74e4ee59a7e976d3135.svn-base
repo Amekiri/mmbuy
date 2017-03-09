@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>最新优惠 - 省钱控 - 慢慢买</title>
+    <!--引入第三方的样式文件-->
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css"/>
+    <!--引入公共的样式-->
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <!--引入自己的样式-->
+    <link rel="stylesheet" href="../../less/saveMoney/moneyctrl.css"/>
+</head>
+<body>
+<!--页面的头部-->
+<div class="head">
+    <div class="back">
+        <a href="../index.html" class="icon-back"></a>
+    </div>
+    <h1>省钱控 - 最新优惠</h1>
+    <div class="home">
+        <a href="http://m.manmanbuy.com/?o=download" class="icon-app"></a>
+    </div>
+</div>
+
+<!--页面的内容部分-->
+<div id="save-money" class="container">
+    <!-- 这是商品内容的模板-->
+</div>
+
+<!--创建一个商品内容列表显示的模板-->
+<script type="text/template" id="saveMoney">
+    <!--页面内容的商品列表部分-->
+    <div class="save-list">
+        <ul>
+            {{ each list as val i }}
+            <li>
+                <a href="">
+                    <!--左边的图片部分-->
+                    <div class="picture">
+                        {{ #val.productImgSm}}
+                    </div>
+                    <!--右边的产品信息部分-->
+                    <div class="clearfix info">
+                        <!--产品信息的上部分-->
+                        <div class="info-top">{{ val.productName }}<span>{{ val.productPinkage }}</span></div>
+                        <!--产品信息的底部-->
+                        <div class="info-bottom">
+                            <span class="pro-source">{{ val.productFrom }} | {{ val.productTime }}</span>
+                            <span class="pro-comment"><i class="icon-comment"></i>{{ getCount(val.productComCount) }}</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {{ /each }}
+        </ul>
+    </div>
+    <!--页面内容的页面选择部分-->
+    <div class="save-page">
+        <div class="row">
+            <div class="col-xs-4"><a href="">上一页</a></div>
+            <div class="col-xs-4">
+                <div class="select-page">
+                    <select name="" id="">
+                        <option value="第1页">第1页</option>
+                        <option value="">第2页</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-4 next-page"><a href="">下一页</a></div>
+        </div>
+    </div>
+</script>
+
+<!--页面下面部分的导航条-->
+<div class="money-nav">
+    <a href="../../index.html">首页</a><span>&nbsp;>&nbsp省钱控</span>
+</div>
+
+<!--页面的底部-->
+<div class="money-footer"></div>
+
+<!--左侧的app下载固定栏-->
+<div class="fixed-appload">
+    <a href="http://m.manmanbuy.com/?o=download">
+        <img src="../../images/fixtop.png" alt=""/>
+    </a>
+</div>
+
+
+
+<!--引入jq和bootstrap第三方库-->
+<script src="../../lib/jquery/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+<!--引入模板引擎的库-->
+<script src="../../lib/artTemplate-3.0.1/template.js"></script>
+<!--引入自己的js文件-->
+<script src="../../js/saveMoney/moneyctrl.js"></script>
+</body>
+</html>

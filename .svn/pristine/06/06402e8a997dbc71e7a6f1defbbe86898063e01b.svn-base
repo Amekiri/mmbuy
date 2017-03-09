@@ -1,0 +1,96 @@
+/**
+ * Created by sanda on 2017/3/6.
+ */
+/*
+* 获取到全部的img分布加载进去，【还要添加事件（用委托）】，就搞一个标识，当到某个位置就加载标识对应的内容scrolltop。获取高度。叉叉叉
+* 对数据进行处理；分为那么多组，然后事件触发；高度触发事件；scrollTop，数据分组；根据scroll触发，不会长期触发？
+* 触发跟本地存储吧；
+* */
+$(function(){
+    //获取ID
+    var couponid =decodeURI(util.getQueryString('couponid'));
+    //更改头部名称还有底部
+    //console.log(JSON.parse(util.getQueryString('title')));
+        $('.top h1').html(decodeURI(util.getQueryString('title'))+'优惠券');
+        $('.nav a:nth-last-of-type(1)').html($('.top h1').html());
+    //根据页面的url进行不同的处理
+    switch (couponid){
+        case '0':
+            setAjax('aa',couponid);
+        break;
+        case '1':
+            setAjax('bb',couponid);
+        break;
+        case '2':
+            setAjax('cc',couponid);
+        break;
+        case '3':
+            setAjax('dd',couponid);
+            break;
+        default :
+            alert('GG');
+    }
+    clk($('.both img')[0],function(e){
+        $('.both').hide();
+    });
+    //左右按钮的事件
+    $('.both i:nth-of-type(1)').on('click',function(e){
+        var i =$('.both').attr('index');
+        i--;
+        $('.both').attr('index',i);
+        $('.both').children('img').attr('src',$('.rate-shop1-a').eq(i).find('img').attr('src'));
+    });
+    $('.both i:nth-of-type(2)').on('click',function(e){
+        var i =$('.both').attr('index');
+        i++;
+        $('.both').attr('index',i);
+        $('.both').children('img').attr('src',$('.rate-shop1-a').eq(i).find('img').attr('src'));
+    })
+});
+//封装一个点击事件传dom对象，还有回调；
+function clk(obj,fn,aa){
+    //事件，阈值
+    var tTime=0;
+    var onOff=true;
+    obj.addEventListener('touchstart',function(){
+        tTime = new Date();
+    },false);
+    obj.addEventListener('touchmove',function(){
+        onOff=false;
+    },false);
+    obj.addEventListener('touchend',function(e){
+        //记录触发对象，方便使用
+        var tT =new Date();
+        if(onOff && (tT-tTime<150)){
+                fn(aa);
+        }else{
+                return false;
+        }
+    },false);
+}
+//这是ajax的流程为了本地存储拿出来
+function setAjax(num,couponid){
+    if(sessionStorage.getItem(num) ){
+        $('#rate-shop1').html(template("rate-shop1-list",JSON.parse(sessionStorage.getItem(num))));
+     }else{
+        $.get('http://mmb.ittun.com/api/getcouponproduct?couponid='+couponid,function(data){
+     //本地存储的json变化
+        sessionStorage.setItem(num,JSON.stringify(data));
+     $('#rate-shop1').html(template("rate-shop1-list",JSON.parse(sessionStorage.getItem(num))));
+            setAjaxA();
+        });
+     }
+            setAjaxA();
+
+}
+//setAjax公共的用来遍历添加点击事件
+function setAjaxA(){
+    $('.rate-shop1-a').each(function(i,index){
+        //index.index=i;
+        clk(index,function(i){
+            $('.both').attr('index',i);
+            $('.both').children('img').attr('src',$('.rate-shop1-a').eq(i).find('img').attr('src'));
+            $('.both').show();
+        },i);
+    })
+}

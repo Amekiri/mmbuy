@@ -1,0 +1,52 @@
+/*页面的内容部分*/
+.container {
+  padding: 0;
+  /*页面内容的商品列表部分*/
+}
+.container .save-list {
+  background-color: #fff;
+  font-size: 14px;
+}
+.container .save-list li {
+  padding: 14px 8px;
+}
+.container .save-list li a {
+  display: block;
+  /*左边的图片部分*/
+  /*右边的产品信息部分*/
+}
+.container .save-list li a .picture {
+  float: left;
+  width: 110px;
+}
+.container .save-list li a .picture img {
+  width: 100px;
+  height: 100px;
+}
+.container .save-list li a .info {
+  font-size: 14px;
+  line-height: 24px;
+  padding-left: 90px;
+  /*产品信息的上部分*/
+  /*产品信息的底部*/
+}
+.container .save-list li a .info .info-top {
+  color: #333;
+  font-size: 15px;
+  word-break: break-all;
+  height: 57px;
+  line-height: 19px;
+  text-align: left;
+}
+.container .save-list li a .info .info-top span {
+  color: #ff6c00;
+  display: inline;
+}
+.container .save-list li a .info .info-bottom {
+  margin-top: 8px;
+}
+.container .save-list li a .info .info-bottom .pro-source {
+  color: #a1a1a1;
+  font-size: 12px;
+  float: left;
+}

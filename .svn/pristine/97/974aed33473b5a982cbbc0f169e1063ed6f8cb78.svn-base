@@ -1,0 +1,10 @@
+/**
+ * Created by king on 2017/3/6.
+ */
+//一级标题的页面渲染
+$.get('/api/getbrandtitle', function (data) {
+    if(data.code == 200) {
+        var html = template('brandTitle1-tpl', {list: data.result});
+        $('#brandTitle').html(html);
+    }
+})

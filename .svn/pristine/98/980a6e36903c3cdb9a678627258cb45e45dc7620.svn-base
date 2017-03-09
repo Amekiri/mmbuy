@@ -1,0 +1,67 @@
+/**
+ * Created by Administrator on 2017/3/7.
+ */
+$(function () {
+    var categoryid = util.getQueryString("categoryid") || 1;
+    $.get("http://139.199.157.195:9090/api/getcategorybyid",{
+        categoryid:categoryid
+    }, function (data) {
+        console.log()
+        $(".filterBox span:nth-of-type(2)").after(template("filterTemp", {list:data.result}))
+    });
+    //默认渲染页面
+    $.get("http://139.199.157.195:9090/api/getproductlist",{
+        categoryid:categoryid,
+        pageid:1
+    }, function (data) {
+        console.log()
+        $(".productList ul").html(template("productlistTemp", {list:data.result}));
+        var pagesize = data.pagesize;
+        var totalCount = data.totalCount;
+        var pagetotal = Math.ceil(totalCount/pagesize);
+        var arr = [],a=1;
+        for(var i=0;i<pagetotal;i++){
+            arr.push({index:a});
+            a++;
+        };
+        //渲染三级菜单
+        $(".selectPage select").html(template("selectTemp", {list:arr}));
+
+        //改变页数发送请求改变页面内容
+        $("#pageNum").on("change", function () {
+            ajaxproductlist();
+        });
+        //点击上下按钮翻页
+        $("#prev").click(function(){
+            var selectVal = $("#pageNum option:selected").val();
+            selectVal--;
+            if(selectVal>0){
+                updateProductlist(selectVal);
+            }
+        });
+        $("#next").click(function(){
+            var selectVal = $("#pageNum option:selected").val();
+            selectVal++;
+            if(selectVal<=$("#pageNum option").length){
+               updateProductlist(selectVal);
+            }
+        })
+    });
+    //封装换页的方法
+    function updateProductlist(selectVal){
+        $("#pageNum option:selected").removeAttr("selected");
+        $("#pageNum option")[selectVal-1].selected = true;
+        ajaxproductlist();
+    };
+    //封装请求的方法
+    function ajaxproductlist(){
+        $.ajax({
+            type:"get",
+            url:"http://139.199.157.195:9090/api/getproductlist",
+            data:$(".form-data").serialize()+"&categoryid="+categoryid,
+            success: function (data) {
+                $(".productList ul").html(template("productlistTemp", {list:data.result}));
+            }
+        })
+    }
+})

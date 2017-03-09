@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>最新优惠 - 省钱控 - 慢慢买</title>
+    <!--引入第三方的样式文件-->
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css"/>
+    <!--引入公共的样式-->
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <!--引入自己的样式-->
+    <link rel="stylesheet" href="../../less/saveMoney/moneyctrl.css"/>
+    <!--引入图标-->
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico"/>
+</head>
+<body>
+<div class="save-layout">
+    <!--页面的头部-->
+    <div class="head" id="toTop">
+        <div class="back">
+            <a href="../../index.html" class="icon-back"></a>
+        </div>
+        <h1>省钱控 - 最新优惠</h1>
+        <div class="home">
+            <a href="http://m.manmanbuy.com/?o=download" class="icon-app"></a>
+        </div>
+    </div>
+
+    <!--页面的内容部分-->
+    <div class="container">
+        <!--页面内容的商品列表部分-->
+        <div class="save-list">
+            <ul id="save-money-list">
+                <!-- 这是商品内容的模板-->
+            </ul>
+        </div>
+
+        <!--页面内容的页面选择部分-->
+        <div class="save-page">
+            <form action="" id="changePage">
+                <div class="col-xs-4"><button id="piev-page" type="submit">上一页</button></div>
+                <div class="col-xs-4 select-page">
+                    <select name="pageid" id="pages">
+                        <!--页面选择的模板-->
+                    </select>
+                </div>
+                <div class="col-xs-4"><button id="next-page" type="submit">下一页</button></div>
+            </form>
+        </div>
+    </div>
+
+    <!--页面下面部分的导航条-->
+    <div class="money-nav">
+        <a href="../../index.html">首页</a><span>&nbsp;>&nbsp省钱控</span>
+    </div>
+
+    <!--页面的底部-->
+    <footer>
+        <div class="function">
+            <a href="">登录</a>
+            <a href="">注册</a>
+            <a href="#toTop"><img src="../../images/toTop.png" alt=""/>返回顶部</a>
+        </div>
+        <div class="interview">
+            <p><span>手机app下载</span> 慢慢买手机版--掌上比价平台</p>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </footer>
+
+    <!--左侧的app下载固定栏-->
+    <div class="fixed-appload">
+        <a href="http://m.manmanbuy.com/?o=download">
+            <img src="../../images/fixtop.png" alt=""/>
+        </a>
+    </div>
+</div>
+
+
+<!--创建一个商品内容列表显示的模板-->
+<script type="text/template" id="saveMoney">
+    <% for (var i = 0, len = list.length; i < len; i++){%>
+    <li>
+        <a href="discount.html?productid=<%=list[i].productId%>">
+            <!--左边的图片部分-->
+            <div class="picture">
+                <%=#list[i].productImgSm%>
+            </div>
+            <!--右边的产品信息部分-->
+            <div class="clearfix info">
+                <!--产品信息的上部分-->
+                <div class="info-top"><%=list[i].productName%> <span><%=list[i].productPinkage%></span></div>
+                <!--产品信息的底部-->
+                <div class="info-bottom">
+                    <span class="pro-source"> <%=list[i].productFrom%> | <%=list[i].productTime%> </span>
+                    <span class="pro-comment"><i class="icon-comment"></i> <%=getCount(list[i].productComCount)%> </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <% }%>
+</script>
+<!--创建一个页面选择的模板-->
+<script type="text/template" id="selectPage">
+    <% for (var i = 0, len = list.length; i < len; i++){%>
+    <option value="<%=list[i].index%>"><%=list[i].index%> / <%=list[len-1].index%></option>
+    <% }%>
+</script>
+
+
+
+<!--引入jq和bootstrap第三方库-->
+<script src="../../lib/jquery/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+<!--引入模板引擎的库-->
+<script src="../../lib/artTemplate-3.0.1/template-native.js"></script>
+<!--引入自己的js文件-->
+<script src="../../js/common/util.js"></script>
+<script src="../../js/saveMoney/moneyctrl.js"></script>
+</body>
+</html>

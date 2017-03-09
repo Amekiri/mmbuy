@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>国内折扣</title>
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <link rel="stylesheet" href="../../css/common/loading.css"/>
+    <link rel="stylesheet" href="../../css/CountryDiscount/CountryDiscount-ly-2.css"/>
+</head>
+<body>
+    <div class="layout">
+        <span id="toTop"></span>
+        <div class="loading">
+            <img class="loading-img" src="../../images/loading.gif" alt=""/>
+        </div>
+        <div class="discount-header">
+            <h3 class="products-top-title">国内折扣</h3>
+            <a href="javascript:;" class="go-back">
+                <span class="trigger-wrap">
+                    <span class="trigger-1"></span>
+                    <span class="trigger-2"></span>
+                </span>
+            </a>
+            <a href="javascript:;" class="app-download"></a>
+        </div>
+        <div class="products-banner">
+            <img src="../../images/banner-house.jpg" alt="广告栏"/>
+            <span class="timing-X-close">X</span>
+        </div>
+        <div class="swipe-wrap">
+            <div class="swipe-box">
+                <script type='text/html' id="products-item-tpl">
+                    <h4 class="products-title">{{productName}}</h4>
+                    <p class="products-txt-title">
+                        <span>{{productFrom}}</span>
+                        <span>{{productTime}}</span>
+                        <span>{{productTips}}</span>
+                    </p>
+                    <div class="products-txt-img">
+                        <div class="products-right-img">{{#productImg}}</div>
+                        {{productInfo}}
+
+                    </div>
+                    <div class="products-bigImg">
+                        {{#productImg}}
+                    </div>
+                    <!--省份 ==================有无货-->
+                    <div class="products-buy">
+                        <input type="button" class="btn-buy" value="前往购买"/>
+                    </div>
+                    <div class="img-erweima">
+                        <img class="erweima" src="../../images/mmbweixin2.png" alt=""/>
+                    </div>
+                    <div class="products-comment">
+                        <form action="" class="products-form">
+                            {{#productComment}}
+                        </form>
+                    </div>
+                </script>
+            </div>
+        </div>
+        <!--页面底部-->
+        <footer>
+            <div class="function">
+                <a href="">
+                    登录
+                </a>
+                <a href="">
+                    注册
+                </a>
+                <a href="#toTop">
+                    返回顶部
+                </a>
+            </div>
+            <div class="interview">
+                <p><span>手机app下载</span> 慢慢买手机版--掌上比价平台</p>
+                <p>m.manmanbuy.com</p>
+            </div>
+        </footer>
+        <a href="#toTop" class="products-anchor"><img src="../../images/fixtop.png" alt=""/></a>
+    </div>
+</body>
+
+<!--引入js文件-->
+<!--公共库jQ-->
+<script src='../../lib/jquery/jquery.min.js'></script>
+<!--引入util封装函数-->
+<script src='../../js/common/util.js'></script>
+<script src='../../js/common/ly-swipe.js'></script>
+<!--简易引擎模板-->
+<script src='../../lib/artTemplate-3.0.1/template.js'></script>
+<!--国内折扣 js文件-->
+<script src='../../js/CountryDiscount/CountryDiscount-ly-2.js'></script>
+</html>

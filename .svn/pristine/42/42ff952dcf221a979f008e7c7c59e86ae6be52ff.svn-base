@@ -1,0 +1,32 @@
+/**
+ * Created by 李越 on 2017/3/6.
+ */
+(function (){
+    //点击广告栏关闭按钮 添加动画类名
+    $('.timing-X-close').on('click', function () {
+        $('.products-banner').addClass('animated zoomOutDown');
+
+
+    });
+    var productid = util.getQueryString('productid');
+    $(document).on('ajaxStart', function () {
+        $('.loading').show();
+    }).on('ajaxStop', function () {
+        $('.loading').hide();
+    });
+    $.ajax({
+        type:'get',
+        url:'http://mmb.ittun.com/api/getdiscountproduct?productid='+productid,
+        success: function (data) {
+            console.log(data.result[0]);
+            var html = template('products-item-tpl',data.result[0]);
+            $('.swipe-box').html(html);
+            var goSwipe = new LySwipe({
+                domParent:'.swipe-wrap',
+                domchild:'.swipe-box',
+                Bouncd:200
+            });
+            goSwipe._swipe();
+        }
+    });
+})();

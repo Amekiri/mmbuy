@@ -1,0 +1,21 @@
+/**
+ * Created by xiaoluo on 2017/3/6.
+ */
+//调用省钱控页面的接口,获取到数据
+$.ajax({
+    url : "http://139.199.157.195:9090/api/getmoneyctrl",
+    type : "get",
+    data : {},
+    success : function (data) {
+        if(data.result.length != 0){
+            //console.log(data);
+            $("#save-money").html(template("saveMoney", {list : data.result }));
+        }
+    }
+});
+
+//封装一个可以截取到指定字符串的函数,然后调用指定模板里面的辅助方法helper,在模板引擎里面调用方法,传入返回的数据
+template.helper("getCount", function (str) {
+    var a = /\d/.exec(str);
+    return a[0];
+});

@@ -1,0 +1,98 @@
+.layout {
+  width: 375px;
+  height: 50px;
+}
+.layout .head {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-bottom: 10px;
+}
+.layout .head > .logo {
+  width: 100%;
+  height: 100%;
+}
+.layout .head > .logo > a {
+  width: 100%;
+  display: inline-block;
+}
+.layout .head > .logo > a > img {
+  width: 185px;
+  height: 25px;
+  line-height: 25px;
+  position: absolute;
+  top: -8px;
+  left: 17px;
+  display: inline-block;
+}
+.layout .head > .appdown {
+  width: 20%;
+  height: 100%;
+}
+.layout .head > .appdown > a {
+  width: 100%;
+  display: inline-block;
+}
+.layout .head > .appdown > a > img {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  top: 7px;
+  right: 7px;
+  position: absolute;
+  display: inline-block;
+}
+.layout .search1 {
+  margin-bottom: 20px;
+  border: 0;
+  background-color: #fff;
+}
+.layout #brandTitle .brandTitle span {
+  width: 375px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #5a5a5a;
+  border-top: 1px solid #ccc;
+}
+.layout #brandTitle > .brandT-List-top {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #874604;
+  padding-left: 20px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  background-color: #eee;
+}
+.layout #brandTitle > ul > li {
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  background-color: #eee;
+  color: #000;
+  font-family: "microsoft yahei";
+  margin: 0;
+  padding: 0;
+}
+.layout #brandTitle > ul > li > a {
+  display: block;
+  color: #000;
+  font-size: 16px;
+  padding-left: 0px;
+  padding-left: 20px;
+}
+.layout #brandTitle > ul > li > #count {
+  font-size: 12px;
+  padding-left: 20px;
+}
+.layout #brandTitle > ul > li:first-child {
+  border-top: none;
+}
+.layout .active {
+  display: none;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>凑单品</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <link rel="stylesheet" href="../../css/gsproduct/coudan-zr.css"/>
+</head>
+<body>
+    <div class="coudan_layout">
+        <!--页面顶部-->
+        <header>
+            <a class="goBack" href="http://mmm.com/">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-jiantou"></use>
+                </svg>
+            </a>
+            <h1>凑单品</h1>
+        </header>
+        <!--导航-->
+        <nav>
+            <!-- 搜索-->
+            <div class="search">
+                <i></i>
+            </div>
+            <div class="searchBox">
+                <div class="searchBox-t">
+                    <a href="javascript:;">搜索</a>
+                    <div class="txt">
+                        <input type="search" name="" placeholder="搜索您想要凑的单品" id=""/>
+                    </div>
+                </div>
+                <hr/>
+                <div class="searchBox-b">
+                    <span>排序</span>
+                    <dl class='chooseList clearfix'>
+                        <dd><a href="javascript:;">销量</a></dd>
+                        <dd><a href="javascript:;">价格↑</a></dd>
+                        <dd><a href="javascript:;" class="choose" >价格↓</a></dd>
+                    </dl>
+                    <span>分类</span>
+                    <dl class='chooseList clearfix'>
+                        <dd><a href="javascript:;" class="choose">全部</a></dd>
+                        <dd><a href="javascript:;">家居↑</a></dd>
+                        <dd><a href="javascript:;">数码</a></dd>
+                        <dd><a href="javascript:;">办公</a></dd>
+                        <dd><a href="javascript:;">个护</a></dd>
+                        <dd><a href="javascript:;">食品</a></dd>
+                        <dd><a href="javascript:;">母婴</a></dd>
+                        <dd><a href="javascript:;">服饰</a></dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- 店铺/区域/价格筛选-->
+            <div class="filter">
+                <ul>
+                    <li>
+                        <a data-target="shopSelects" href="javascript:;">
+                            <!--<i></i>-->
+                        </a>
+                    </li>
+                    <li>
+                        <a data-target="areaSelects" href="javascript:;">
+                            <!--<i></i>-->
+                        </a>
+                    </li>
+                    <li>
+                        <a data-target="priceSelects" href="javascript:;">
+                            <!--<i></i>-->
+                        </a>
+                    </li>
+                    <li class='changeStyle planB'>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-pailiefangshi01"></use>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+            <!-- 下拉选择框-->
+            <div class="selectBox">
+                <!--店铺下拉框-->
+                <div id="shopSelects">
+                    <!--引入店铺名称模板-->
+                </div>
+                <!--地区下拉框-->
+                <div id='areaSelects'>
+                    <!--引入地域名称模板-->
+                </div>
+                <!--价格下拉框-->
+                <div id="priceSelects">
+                    <ul>
+                        <li class="current"><a href="javascript:;">1</a></li>
+                        <li><a href="javascript:;">2</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--产品列表-->
+        <div class="swipe-wrap">
+            <div class="products-list planB">
+                <!--引入商品列表模板-->
+            </div>
+        </div>
+        <div class="loading">
+            <img src="../../images/loading.gif" width="32" height="32" alt=""/>
+        </div>
+    </div>
+    <!-- 店铺名模板-->
+    <script id='shopName-tpl' type='text/html'>
+        <ul>
+            {{each result as val i}}
+            <li data-id='{{val.shopId}}' class={{ i==0?'current':'' }}><a href="javascript:;">{{val.shopName}}</a></li>
+            {{/each}}
+        </ul>
+    </script>
+    <!-- 地域名模板-->
+    <script id='areaName-tpl' type='text/html'>
+        <ul>
+            {{each result as val i}}
+            <li data-id='{{val.areaId}}' class={{ i==0?'current':'' }}><a href="javascript:;">{{val.areaName}}</a></li>
+            {{/each}}
+        </ul>
+    </script>
+    <!-- 商品列表模板-->
+    <script id='product-list-tpl' type='text/html'>
+        <ul class="clearfix">
+            {{each list as val i}}
+            <li class="clearfix">
+                <a href="http://item.m.jd.com/ware/view.action?wareId=4215682">
+                    <div class='pic'>
+                        <img width="100%" height="100%" src="{{ val.productImg }}" alt=""/>
+                    </div>
+                    <div class="fl">
+                        <p class="pro_dis">{{ val.productName }}</p>
+                        <span class="pro_price">{{ val.productPrice }}</span>
+                    </div>
+
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <script src="../../lib/fonts/iconfont.js"></script>
+    <script src="../../lib/fonts/iconfont2.js"></script>
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src='../../lib/artTemplate-3.0.1/template.js'></script>
+    <script src='../../js/common/ly-swipe.js'></script>
+    <script src='../../js/coudan/couDan.js'></script>
+</body>
+</html>

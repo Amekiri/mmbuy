@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <!--引入第三方的样式文件-->
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css"/>
+    <!--引入公共的样式-->
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <!--引入自己的样式-->
+    <link rel="stylesheet" href="../../less/saveMoney/discount.css"/>
+</head>
+<body>
+<!--页面的头部-->
+<div class="head" id="toTop">
+    <div class="back">
+        <a href="moneyctrl.html" class="icon-back"></a>
+    </div>
+    <h1>国内折扣</h1>
+    <div class="home">
+        <a href="http://m.manmanbuy.com/?o=download" class="icon-app"></a>
+    </div>
+</div>
+
+<!--页面的内容部分-->
+<div class="content">
+    <!--form表单部分,包括内容介绍和发表评论-->
+    <form action="" id="form-comment">
+        <!--产品部分-->
+        <div class="content-top" id="product-info">
+            <!--产品信息的坑-->
+        </div>
+        <!-- 扫描二维码部分-->
+        <div class="content-ewm">
+            <img src="../../images/mmbweixin2.png" alt=""/>
+        </div>
+    </form>
+
+    <!--前往购买的固定栏部分-->
+    <div class="fixed-buy">
+        <div class="footer-comment">
+            <div class="icon-comment iconfont"></div>
+            <a href="#comment">评论</a>
+        </div>
+        <div class="footer-buy">
+            <a href="javascript:;"><div class="icon-gobuy iconfont"></div>前往购买</a>
+        </div>
+    </div>
+</div>
+
+<!--页面下面部分的导航条-->
+<div class="money-nav">
+    <!--导航条的坑-->
+</div>
+
+<!--页面的底部-->
+<footer>
+    <div class="function">
+        <a href="">登录</a>
+        <a href="">注册</a>
+        <a href="#toTop"><img src="../../images/toTop.png" alt=""/>返回顶部</a>
+    </div>
+    <div class="interview">
+        <p><span>手机app下载</span> 慢慢买手机版--掌上比价平台</p>
+        <p>m.manmanbuy.com</p>
+    </div>
+</footer>
+
+<!--左侧的app下载固定栏-->
+<div class="fixed-appload">
+    <a href="http://m.manmanbuy.com/?o=download">
+        <img src="../../images/fixtop.png" alt=""/>
+    </a>
+</div>
+
+
+<!--创建一个渲染产品信息的模板-->
+<script type="text/template" id="productInfo">
+    <!--商品的信息展示部分-->
+    {{ each list as val i }}
+    <div class="content-info">
+        <h3>{{ val.productName }}</h3>
+        <h4>{{ val.productPinkage }}</h4>
+        <div class="info">
+            <span class="pro-source">{{ val.productFrom }}</span>
+            <span class="addtime">{{ val.productTime }}</span>
+            <span class="auther">{{ val.productTips }}</span>
+        </div>
+        <div class="desc">
+            <div class="small-pic">
+                {{ #val.productImgSm }}
+            </div>
+            <div class="left-con">
+                <p>{{ val.productInfo }}</p>
+                <p>{{ val.productInfo1? val.productInfo1 : val.productInfo2 }}</p>
+                <p>{{ #val.productImgLg }}</p>
+            </div>
+            <!--中间部分判断是否有货-->
+            <center>
+                <div class="area">
+                    <span class="city">
+                        <div class="drop">
+                            {{ #val.productCity}}
+                            <!--<ul id="district">
+                                <li>
+                                    <a href="javascript:;"><span>北京<strong>有货</strong></span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>天津<strong>有货</strong></span></a>
+                                </li>
+                            </ul>-->
+                        </div>
+                    </span>
+                </div>
+            </center>
+            <div class="gobuy"><a href="javascript:;"><i class="icon-gobuy"></i>前往购买</a></div>
+        </div>
+    </div>
+    <!--发表评论部分-->
+    <div class="content-comment" id="comment">
+        {{ #val.productComment }}
+        <!--<div class="dis-title">发表评论</div>
+        <div class="replay">
+            <div class="form">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <div class="ctrl">
+                    <input type="submit" value="发表评论"/>
+                </div>
+            </div>
+        </div>
+        <div class="dis-title">最新评论</div>
+        <div class="com-list">
+            <ul>
+                <li class="com-list">
+                    <div class="userimg">
+                        <img src="../../images/urserImg.png" alt=""/>
+                    </div>
+                    <div class="con">
+                        <div class="clearfix con-name">
+                            <div class="username">qq_321671RE</div>
+                            <div class="time">2017/3/8 12:47:08</div>
+                        </div>
+                        <div class="con-content">情人节1059买的没送出去</div>
+                    </div>
+                </li>
+            </ul>
+        </div>-->
+    </div>
+    {{ /each }}
+</script>
+
+<!--创建一个导航条的模板-->
+<script type="text/template" id="moneyNav">
+    {{ each list as val i}}
+    <a href="../../index.html">首页</a>&nbsp;>&nbsp <a href="moneyctrl.html">超值推荐</a>&nbsp;>&nbsp <span>{{  getString(val.productName) }}</span>
+    {{ /each }}
+</script>
+
+<script type="text/template" id="title">
+    {{ each list as val i}}
+        {{ val.productName }}
+    {{ /each}}
+</script>
+
+
+<!--引入jq和bootstrap第三方库-->
+<script src="../../lib/jquery/jquery.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.js"></script>
+<!--引入模板引擎的库-->
+<script src="../../lib/artTemplate-3.0.1/template.js"></script>
+<!--引入公共的js方法-->
+<script src="../../js/common/util.js"></script>
+<!--引入自己的js文件-->
+<script src="../../js/saveMoney/discount.js"></script>
+
+</body>
+</html>

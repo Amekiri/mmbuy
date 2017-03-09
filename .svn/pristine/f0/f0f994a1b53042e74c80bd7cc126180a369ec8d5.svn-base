@@ -1,0 +1,30 @@
+/**
+ * Created by king on 2017/3/6.
+ */
+//一级标题的页面渲染
+$.get('http://mmb.ittun.com/api/getbrandtitle', function (data) {
+    if(data.result.length !=0) {
+        $('#brandTitle').append(template('brandTitle1-tpl', {list: data.result}));
+    }
+
+});
+
+//获取一级标题的id
+var brandtitleid =util.getQueryString('brandtitleid');
+
+//二级标题的页面渲染 委托父元素给动态生成的li添加点击事件
+$('#brandTitle').on('click','ul>li>a', function () {
+    var self=$(this);
+    $.ajax({
+        url:'http://mmb.ittun.com/api/getbrand',
+        type:'post',
+        data:{
+            brandtitleid:brandtitleid
+        },
+        success: function (data) {
+            if(data.result.length !=0) {
+                self.append(template('brandTitle2-tpl', {list: data.result}));
+            }
+        }
+    });
+});

@@ -1,0 +1,92 @@
+.layout {
+  width: 375px;
+  height: 50px;
+  .head {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-bottom: 10px;
+    > .logo {
+      width: 100%;
+      height: 100%;
+      > a {
+        width: 100%;
+        display: inline-block;
+        > img {
+          width: 185px;
+          height: 25px;
+          line-height: 25px;
+          position: absolute;
+          top: -8px;
+          left: 17px;
+          display: inline-block;
+        }
+      }
+    }
+    > .appdown {
+      width: 20%;
+      height: 100%;
+      > a {
+        width: 100%;
+        display: inline-block;
+        > img {
+          width: 34px;
+          height: 34px;
+          line-height: 34px;
+          top: 7px;
+          right: 7px;
+          position: absolute;
+          display: inline-block;
+        }
+      }
+
+    }
+  }
+  .search1 {
+    margin-bottom: 20px;
+    border: 0;
+    background-color: #fff;
+  }
+  #brandTitle {
+    .brandTitle span {
+      height: 38px;
+      line-height: 38px;
+      padding-left: 20px;
+      font-size: 14px;
+      color: #5a5a5a;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      //background-color: #eee;
+    }
+    >.brandT-List-top{
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      color: #874604;
+      padding-left: 20px;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      background-color: #eee;
+    }
+      > ul >li{
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        background-color: #eee;
+        > a {
+          display: block;
+          color: #000;
+          font-size: 16px;
+          padding-left: 0px;
+          padding-left: 20px;
+        }
+        >.count{
+          font-size: 12px;
+          padding-left: 20px;
+        }
+
+      }
+    }
+  }
+
+
+

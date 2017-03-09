@@ -1,0 +1,257 @@
+.layout {
+  background-color: #f2f2f2;
+  > .head {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-bottom: 10px;
+    > .logo {
+      width: 100%;
+      height: 100%;
+      > a {
+        width: 100%;
+        display: inline-block;
+        > img {
+          width: 185px;
+          height: 25px;
+          line-height: 25px;
+          position: absolute;
+          top: -8px;
+          left: 17px;
+          display: inline-block;
+        }
+      }
+    }
+    > .appdown {
+      width: 20%;
+      height: 100%;
+      > a {
+        width: 100%;
+        display: inline-block;
+        > img {
+          width: 34px;
+          height: 34px;
+          line-height: 34px;
+          top: 7px;
+          right: 7px;
+          position: absolute;
+          display: inline-block;
+        }
+      }
+
+    }
+  }
+  .search1 {
+    height: 50px;
+  }
+  #brandTitle, #brandTitle2 {
+    .brandTitle > span {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 20px;
+      padding-left: 10px;
+      font-size: 14px;
+      color: #5a5a5a;
+      font-family: "SimSun ";
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    > .brandT-List-top {
+      width: 98%;
+      font-size: 16px;
+      margin: 5px auto;
+      background-color: #eee;
+      height: 38px;
+      line-height: 38px;
+      color: #874604;
+      font-family: "microsoft SimHei  ";
+      padding-left: 10px;
+      border: 1px solid #ccc;
+    }
+    > ul > li {
+      border-bottom: 1px solid #e8e8e8;
+      border-top: 1px solid #ccc;
+      margin: 0;
+      > a {
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        font-weight: 900;
+        color: #000;
+        font-family: "microsoft SimHei ";
+        margin: 0;
+        font-size: 16px;
+        padding-left: 20px;
+        > .icon {
+          position: absolute;
+          top: 6px;
+          right: 15px;
+          width: 30px;
+          height: 30px;
+          background-size: 10%;
+          background: url("../../images/icon_bar.png") no-repeat -200px -29px;
+          transform: rotate(-90deg) scale(0.5, 0.5);
+        }
+      }
+    }
+  }
+
+  #brandTitle2 {
+    > ul > li {
+      height: 50px;
+      border-top: none;
+      > em {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        color: #fff;
+        background-color: #c9c9c9;
+        text-align: center;
+        vertical-align: top;
+        font-size: 14px;
+        margin: 10px;
+      }
+      > div {
+        letter-spacing: 1px;
+        display: inline-block;
+        padding-top: 8px;
+        color: #000;
+        margin: 0;
+        text-align: -webkit-match-parent;
+        font-size: 16px;
+        font-family: "NSimSun ";
+        font-style: normal;
+        > #count {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+    > ul > li:nth-of-type(1) > em {
+      background-color: #f10e0e;
+    }
+    > ul > li:nth-of-type(2) > em {
+      background-color: #ff9314;
+    }
+    > ul > li:nth-of-type(3) > em {
+      background-color: #8adf5b;
+    }
+    > ul > li:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  .selList {
+    width: 100%;
+    > .selList-Top {
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #874604;
+      font-family: "SimHei ";
+      font-weight: 700;
+      padding-left: 10px;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+    > .container {
+      margin-left: -15px;
+      margin-right: -15px;
+      ul > li {
+        >.selList-List-l{
+          padding-top: 8px;
+        }
+        .selList-List-r {
+          p:first-of-type {
+            font-size: 16px;
+            color: #333;
+            padding-top: 8px;
+          }
+          p:last-of-type {
+            font-size: 18px;
+            color: #ea3900;
+            position: relative;
+            >.stars{
+              display: inline-block;
+              position: absolute;
+              right: 5px;
+              .orange{
+                 color: #ea3900;
+               }
+              .gray{
+                color: gray;
+              }
+            }
+
+          }
+          .comPeice{
+            color: #999;
+            font-size: 12px;
+            padding-bottom: 20px;
+            >span:first-child{
+              padding-right: 20px;
+              line-height: 24px;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .selList-dis {
+    width: 100%;
+    > .selList-dis-Top {
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #874604;
+      font-family: "SimHei ";
+      font-weight: 700;
+      padding-left: 10px;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+    > .container {
+      width: 100%;
+      .selList-dis-l {
+
+      }
+      .selList-dis-r {
+        > p {
+          text-align: left;
+          padding-top: 20px;
+          font-size: 16px;
+        }
+      }
+      ul > li {
+        .selList-dis-user {
+          width: 100%;
+          font-size: 14px;
+          font-family: "Microsoft simhei";
+          color: #0782C1;
+        }
+        > .content {
+          text-indent: 2em;
+          color: #000;
+          font-size: 14px;
+          background-color: #f7f7f7;
+          font-family: "Microsoft simhei  ";
+          letter-spacing: 1px;
+          line-height: 24px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

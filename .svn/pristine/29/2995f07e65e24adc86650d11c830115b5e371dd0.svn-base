@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <link rel="stylesheet" href="../../css/productlist/productlist.css"/>
+</head>
+<body>
+<div class="layout">
+    <!--头部-->
+    <header>
+        <!-- 锚点-->
+        <span id="toTop"></span>
+        <a href="#toTop"><img src="../../images/fixtop.png" alt=""/></a>
+        <h1 class="fl logo">
+            <a href="javascript:;">
+                <img src="../../images/header_logo.png" alt="慢慢买"/>
+            </a>
+        </h1>
+        <div class="fr download">
+            <a href="javascript:;">
+                <img src="../../images/header_app.png" alt="下载按钮"/>
+            </a>
+        </div>
+    </header>
+    <!-- 搜索框-->
+    <div class="search">
+        <input type="text" placeholder="请输入你比价的商品"/>
+        <input type="button" value="搜索"/>
+    </div>
+    <!-- 内容部分-->
+    <div class="main">
+        <section class="filterBox">
+            <a href="/">首页</a><span>&gt;</span>
+            <a href="javascript:;">全部分类</a><span>&gt;</span>
+            <!-- 三级标题的坑-->
+            <button>筛选</button>
+        </section>
+        <section class="productList">
+            <ul>
+
+            </ul>
+        </section>
+        <section class="selectPage clearfix">
+            <form class="form-data">
+                <div>
+                    <input type="button" value="上一页" id="prev"/>
+                </div>
+                <div>
+                    <select name="pageid" id="pageNum">
+
+                    </select>
+                </div>
+                <div>
+                    <input type="button" value="下一页" id="next"/>
+                </div>
+            </form>
+
+
+        </section>
+    </div>
+    <!--底部-->
+    <footer>
+        <div class="function">
+            <a href="">
+                登录
+            </a>
+            <a href="">
+                注册
+            </a>
+            <a href="#toTop">
+                返回顶部
+            </a>
+        </div>
+        <div class="interview">
+            <p><span>手机app下载</span> 慢慢买手机版--掌上比价平台</p>
+            <p>m.manmanbuy.com</p>
+        </div>
+    </footer>
+
+    <script type="text/html" id="selectTemp">
+        <%for (var i=0;i< list.length;i++) {%>
+        <option value="<%=list[i].index%>">1/<%=list[i].index%>
+        </option>
+        <%}%>
+
+</script>
+    <script type="text/html" id="filterTemp">
+        <%for (var i=0;i< list.length;i++) {%>
+        <span><%=list[i].category%></span> <span>&gt;</span>
+        <%}%>
+    </script>
+    <script type="text/html" id="productlistTemp">
+
+        <!--{{each result as val i}}-->
+        <!--<li>-->
+            <!--<a href="">-->
+                <!--<div class="left fl">-->
+                    <!--{{#val.productImg}}-->
+                <!--</div>-->
+                <!--<div class="right">-->
+                    <!--<p class="name">{{val.productName}}</p>-->
+                    <!--<p class="price">{{val.productPrice}}</p>-->
+                    <!--<p>-->
+                        <!--<span class="productQuote">{{val.productQuote}}</span>-->
+                        <!--<span class="productCom">{{val.productCom}}</span>-->
+                    <!--</p>-->
+
+                <!--</div>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--{{/each}}-->
+        <%for (var i=0;i< list.length;i++) {%>
+        <li>
+            <a href="">
+                <div class="left fl">
+                    <%=#list[i].productImg%>
+                </div>
+                <div class="right">
+                    <p class="name"><%=list[i].productName%></p>
+                    <p class="price"><%=list[i].productPrice%></p>
+                    <p>
+                        <span class="productQuote"><%=list[i].productQuote%></span>
+                        <span class="productCom"><%=list[i].productCom%></span>
+                    </p>
+
+                </div>
+            </a>
+        </li>
+        <%}%>
+    </script>
+    <script src="../../lib/jquery/jquery.js"></script>
+    <!--<script src="/lib/artTemplate-3.0.1/template.js"></script>-->
+    <script src="../../lib/artTemplate-3.0.1/template-native.js"></script>
+    <script src="../../js/category/productlist.js"></script>
+
+</div>
+</body>
+</html>

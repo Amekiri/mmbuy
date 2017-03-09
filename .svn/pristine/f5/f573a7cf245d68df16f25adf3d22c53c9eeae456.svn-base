@@ -1,0 +1,78 @@
+/**
+ * Created by king on 2017/3/7.
+ */
+ var util= {
+    // 获取指定的查询字符串AAA
+    getQueryString: function (key) {
+
+        // 去掉字符串首字母?�?
+        var search = location.search.slice(1);
+
+        // 使用&符号得到每一个key=val
+        var searchArr = search.split('&');
+        var tempArr = null;
+        var searchObj = {};
+
+        // 遍历数组中的每一个key=val字符串，使用=号劈�?�?
+        // 然后以key为名，val为�?�添加到searchObj对象中�??
+        for (var i = 0, len = searchArr.length; i < len; i++) {
+            tempArr = searchArr[i].split('=');
+            searchObj[tempArr[0]] = tempArr[1];
+        }
+
+        // 有参数返回指定�?�，没有参数返回全部�?
+        return arguments.length ? searchObj[key] : searchObj;
+        //return searchObj;
+    },
+
+    extend: function () {
+
+    },
+    tap: function (dom, callback) {
+        /*判断有没有传入dom对象*/
+        if (!dom || typeof dom != "object") {
+            return;
+        }
+        /*移动端的单击事件�?般使用touch来模拟，它一般需要满足两个条�?
+         * 1.不能滑动�?
+         * 2.end和Start的时间差异一般应该在150ms以内，如果差异太大，就应该是longpress长按事件*/
+        /*标记是否曾经滑动�?*/
+        var isMove = false;
+        /*记录手指按下的时�?*/
+        var st = 0;
+        dom.addEventListener("touchstart", function (e) {
+            /*Date.now()：它获取的是毫秒�?*/
+            st = Date.now();
+        })
+        dom.addEventListener("touchmove", function (e) {
+            isMove = true;
+        })
+        dom.addEventListener("touchend", function (e) {
+            var et = Date.now();
+            /*判断本次操作是否是单击事�?*/
+            if (isMove == false && et - st < 150) {
+                callback && callback(e);
+            }
+            /*重置*/
+            isMove = false;
+        });
+    },
+    addAnimationEnd: function (dom, callback) {
+        dom.addEventListener("webkitAnimationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("animationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("oAnimationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("msAnimationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("mozAnimationEnd", function () {
+            callback && callback();
+        });
+    }
+}
+

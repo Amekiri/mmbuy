@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="../../css/common/base.css"/>
+    <link rel="stylesheet" href="../../css/category/categoryList.css"/>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <!-- 锚点-->
+            <span id="toTop"></span>
+            <a href="#toTop"><img src="../../images/fixtop.png" alt=""/></a>
+            <h1 class="fl logo">
+                <a href="../../index.html">
+                    <img src="../../images/header_logo.png" alt="慢慢买"/>
+                </a>
+            </h1>
+            <div class="fr download">
+                <a href="javascript:;">
+                    <img src="../../images/header_app.png" alt="下载按钮"/>
+                </a>
+            </div>
+        </header>
+        <!-- 搜索框-->
+        <div class="search">
+            <input type="text" placeholder="请输入你比价的商品"/>
+            <input type="button" value="搜索"/>
+        </div>
+        <div class="bg">
+            <section class="filterBox">
+                <a href="../../index.html">首页</a><span>&gt;</span>
+                <a href="../category/category.html">全部分类</a><span>&gt;</span>
+                <!-- 三级标题的坑-->
+                <a href="" class="title"></a>
+            </section>
+            <div class="pro clearfix">
+                <div class="pro-content">
+
+                </div>
+                <p class="comment-title">网友评论</p>
+                <div class="pro-comment">
+
+                </div>
+                <div class="bg">
+                    <a class="more">查看更多评价</a>
+                </div>
+            </div>
+            <!--底部-->
+            <footer>
+                <div class="function">
+                    <a href="">
+                        登录
+                    </a>
+                    <a href="">
+                        注册
+                    </a>
+                    <a href="#toTop">
+                        返回顶部
+                    </a>
+                </div>
+                <div class="interview">
+                    <p><span>手机app下载</span> 慢慢买手机版--掌上比价平台</p>
+                    <p>m.manmanbuy.com</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script id="pro-tpl" type="text/tpl">
+        {{ each result }}
+        <p class="pro-name">{{ $value.productName }}</p>
+        <div class="pro-img">
+            {{ #$value.productImg }}
+        </div>
+        <div class="pro-bj">
+            <p>比价购买</p>
+            <p>产品参数</p>
+            <p>优选评价</p>
+        </div>
+        <div class="bj-shop">
+            {{ #$value.bjShop }}
+        </div>
+        {{ /each }}
+    </script>
+
+    <script id="pro-comment-tpl" type="text/tpl">
+        {{ each result }}
+        <p class="">
+            <span class="com-name">{{ $value.comName }}</span>
+            <span class="com-time fr">{{ $value.comTime }}</span>
+        </p>
+        <span class="com-from">{{ $value.comFrom }}</span>
+        <p class="com-content">{{ $value.comContent }}</p>
+        {{ /each }}
+    </script>
+
+    <script src="../../js/common/util.js"></script>
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/artTemplate-3.0.1/template.js"></script>
+    <script src="../../js/category/categoryList.js"></script>
+</body>
+</html>

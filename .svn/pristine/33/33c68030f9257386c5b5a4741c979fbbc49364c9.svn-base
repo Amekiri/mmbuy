@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城导航--慢慢买</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <link rel="stylesheet" href="../../css/common/base.css">
+    <link rel="stylesheet" href="../../css/HzSite/HzSite.css">
+</head>
+<body>
+<!--头部-->
+<div id="ct100_headerApp" class="head">
+    <div class="back">
+        <a href="../../index.html" class="icon-back">
+        </a>
+    </div>
+    <h1>商城导航</h1>
+    <div class="home">
+        <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.manmanbuy.bijia" class="icon-app">
+        </a>
+    </div>
+</div>
+
+<!--主体-->
+<div>
+    <div id="list" class="classm link">
+        <!--<a href="http://m.jd.com/" id="HzSite-list">-->
+            <!--<img src="http://sf.manmanbuy.com/images/sitelogo/1.png" alt="">-->
+            <!--京东商城</a>-->
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--底部-->
+<div id="ct100_Menu" class="nav">
+    <a href="../../index.html">首页</a>
+    &nbsp;>&nbsp;
+    <a href="../allCategories/allCates_1.html">商城导航</a>
+</div>
+<div id="ct100_footerApp">
+    <div class="foot_top">
+        <a href="http://m.manmanbuy.com/login.aspx">登录</a>
+        <a href="http://m.manmanbuy.com/reg.aspx">注册</a>
+        <a href="#">
+            <img src="http://www.zuyushop.com/wap/images/top.jpg" style="width: 15px;height: 15px;">
+            返回顶部</a>
+    </div>
+    <div class="footer">
+        <p>
+            <a href="http://m.manmanbuy.com/?o=download" style="color: red">手机APP下载</a>
+            <a href="../../index.html" style="font-weight: bold">慢慢买手机版</a>
+             -- 掌上比价平台
+        </p>
+        <p>
+            m.manmanbuy.com
+        </p>
+    </div>
+</div>
+<!--右侧的app下载固定栏-->
+<div class="fixed-appload">
+    <a href="http://m.manmanbuy.com/?o=download">
+        <img src="https://img.alicdn.com/imgextra/i2/379516416/TB2WepTeb1J.eBjSszcXXbFzVXa_!!379516416.png" width="60"/>
+    </a>
+</div>
+
+<script id="HzSite-list" type="text/template">
+    {{each result as value i}}
+    <a href="{{value.navHref}}">
+        <img src="{{value.navImg}}" alt="">
+        {{value.navTitle}}
+    </a>
+    {{/each}}
+</script>
+<script src="../../lib/artTemplate-3.0.1/template.js"></script>
+<script src="../../lib/jquery/jquery.min.js"></script>
+<script src="../../js/HzSite/HzSite.js"></script>
+</body>
+</html>

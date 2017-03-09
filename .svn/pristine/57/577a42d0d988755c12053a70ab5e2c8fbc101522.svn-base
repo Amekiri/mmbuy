@@ -1,0 +1,73 @@
+/**
+ * Created by 李越 on 2017/3/6.
+ */
+(function (){
+    $(document).on('ajaxStart', function () {
+        $('.loading').show();
+    }).on('ajaxStop', function () {
+        $('.loading').hide();
+    });
+    //本地缓存
+    var sessionStorage_ProductsItems;
+    try{
+        sessionStorage_ProductsItems = window.sessionStorage.getItem('ajaxProductsItems');
+        //console.log(1);
+    }catch(e){
+        sessionStorage_ProductsItems = [];
+    };
+    if(sessionStorage_ProductsItems){
+        //console.log(2);
+        ItemsRender(JSON.parse(sessionStorage_ProductsItems));
+    }else{
+        $.ajax({
+            type:'get',
+            url:'http://mmb.ittun.com/api/getinlanddiscount',
+            success: function (data) {
+                //var list = data.result;
+                //储存在本地
+                window.sessionStorage.setItem('ajaxProductsItems',JSON.stringify(data.result));
+                var getDataResult = JSON.parse(window.sessionStorage.getItem('ajaxProductsItems'));
+                //让其总共分多少页码；
+                ItemsRender(getDataResult);
+            }
+        });
+    };
+    //封装一个渲染函数
+    function ItemsRender(getDataResult){
+        var html,
+            ulHeight,
+            offsetTop,
+            ClientY,
+            scrollTop,
+            goAdd=0,
+            goDown=false;
+        //slice提取响应数据-数组的元素，原数组不会改变；
+        html = template('CountryDiscount',{"list":getDataResult.slice(0,4)});
+        //使用追加内容，而不是给html赋值；
+        $('.layout-products').append(html);
+        //console.log($('.products-a>img').attr('height'));
+        //添加滑动事件
+        var goSwipe = new LySwipe({
+            domParent:'.swipe-box',
+            domchild:'.layout-products',
+            Bouncd:200,
+        });
+        goSwipe._swipe();
+
+        //添加滚动事件
+        $(window).on('scroll', function () {
+            ulHeight = $('.layout-products').height();
+            offsetTop = $('.layout-products').offset().top;
+            ClientY = $(window).height();
+            scrollTop = $(window).scrollTop();
+            //使用节流阀
+            if( (ulHeight+offsetTop-ClientY-scrollTop<-50) && !goDown ){
+                goDown = true;
+                goAdd++;
+                html = template('CountryDiscount',{"list":getDataResult.slice(4*goAdd,4*(goAdd+1))});
+                $('.layout-products').append(html);
+                goDown = false;
+            }
+        });
+    };
+})();//自调函数的结尾;

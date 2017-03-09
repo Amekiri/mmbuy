@@ -1,0 +1,33 @@
+/**
+ * Created by Administrator on 2017/3/6 0006.
+ */
+if(!window.itcast){
+    window.itcast = {};
+}
+itcast.iScroll = function (args) {
+    /*调用的时候没有初始化的话就初始化一次*/
+    if(!(this instanceof  arguments.callee)) return new arguments.callee(args);
+    this.init(args);
+};
+itcast.iScroll.prototype = {
+    constructor:itcast.iScroll,
+    init: function (args) {
+        /*把当前的this存下来*/
+        var self = this;
+        /*如果传入的对象是一个Dom对象就把他看作我们的大容器盒子*/
+        if(args.swipeDom && typeof args.swipeDom == 'object'){
+              self.parentDom = args.swipeDom;
+        }
+        //如果不存在父容器就停止初始化
+        if(!self.parentDom) return false;
+        //找到子容器
+        self.childDom = self.parentDom.children && self.parentDom.children[0]?self.parentDom.children[0]:'';
+        /*如果不存在子容器就停止初始化*/
+        if(!self.childDom) return false;
+        //初始化传入的参数
+        self.settings = {};
+        //默认类型 默认的y轴滑动 如果不是y的话就以x轴开始滑动
+        self.settings.swipeType = args.swipeType?args.swipeType:'y';
+        //默认的缓冲滑动距离
+    }
+}

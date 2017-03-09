@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <link rel="stylesheet" href="../../css/common/base.css">
+    <link rel="stylesheet" href="../../css/allCategories/distop.css">
+    <link rel="stylesheet" href="../../css/HzSite/HzSite.css">
+</head>
+<body>
+    <!--头部-->
+    <div id="ct100_header1" class="header1 clearfix1">
+        <div class="fl logo">
+            <a href="../../index.html" title="慢慢买比价网--手机版">
+                <img src="../../images/header_logo.png" alt="慢慢买比价网--手机版" >
+            </a>
+        </div>
+        <div class="fr appdown">
+            <a href="http://m.manmanbuy.com/?o=download" title="手机APP下载">
+                <img src="../../images/header_app.png" alt="手机APP下载">
+            </a>
+        </div>
+    </div>
+
+    <form action="">
+        <div class="search1 clearfix1" id="ct100_searchmmb">
+            <div class="searchtxt">
+                <input type="text" type="search" placeholder="请输入你想比价的商品">
+            </div>
+            <div class="searchbtn">
+                <input type="submit" value="搜索">
+            </div>
+        </div>
+    </form>
+
+    <div class="intro">
+        <h1>三星电视机</h1>
+        <p>SAMSUNG（三星）是韩国最大的跨国企业集团，由李秉喆于1938年创立，三星集团是家族企业，李氏家族世袭。其业务涉及电子、金融、机械、建设、化学等诸多领域。三星在中国主要经营产品包括：三星手机、电视、数码影音、电脑办公及BSV液晶拼接屏等。</p>
+        <div>以下是三星电视机全网热卖的商品推荐</div>
+    </div>
+
+    <div class="product-list">
+        <ul>
+            <li class="item ui-border-l">
+                <a class="goto" href="http://m.manmanbuy.com/bijia.aspx?id=369565"></a>
+                <div class="pic">
+                    <img src="http://pro.zuyushop.com:8015/ProPic/20156/small80/Thumb_2015060010165281638.jpg" alt="">
+                </div>
+                <div class="clearfix inf">
+                    <div class="tit">三星 UA55JU50SWJXXZ 55英寸超高清4K 智能网络LED液晶电视</div>
+                    <div class="price">
+                        <em>￥</em>
+                        3888
+                    </div>
+                    <div class="other">
+                        <div class="mall">5商城报价</div>
+                        <div class="sales">有2442人评论</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!--底部-->
+    <div id="ct100_footerApp">
+        <div class="foot_top">
+            <a href="http://m.manmanbuy.com/login.aspx">登录</a>
+            <a href="http://m.manmanbuy.com/reg.aspx">注册</a>
+            <a href="#">
+                <img src="http://www.zuyushop.com/wap/images/top.jpg" style="width: 15px;height: 15px;">
+                返回顶部</a>
+        </div>
+        <div class="footer">
+            <p>
+                <a href="http://m.manmanbuy.com/?o=download" style="color: red">手机APP下载</a>
+                <a href="../../index.html" style="font-weight: bold">慢慢买手机版</a>
+                -- 掌上比价平台
+            </p>
+            <p>
+                m.manmanbuy.com
+            </p>
+        </div>
+    </div>
+
+    <!--右侧的app下载固定栏-->
+    <div class="fixed-appload">
+        <a href="http://m.manmanbuy.com/?o=download">
+            <img src="https://img.alicdn.com/imgextra/i2/379516416/TB2WepTeb1J.eBjSszcXXbFzVXa_!!379516416.png" width="60"/>
+        </a>
+    </div>
+
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/artTemplate-3.0.1"></script>
+</body>
+</html>

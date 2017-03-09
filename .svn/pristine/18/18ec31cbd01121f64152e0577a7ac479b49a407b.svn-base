@@ -1,0 +1,104 @@
+/**
+ * Created by king on 2017/3/7.
+ */
+ var util= {
+    // 鑾峰彇鎸囧畾鐨勬煡璇㈠瓧绗︿覆AAA
+    getQueryString: function (key) {
+
+        // 鍘绘帀瀛楃涓查瀛楁瘝?鍙?
+        var search = location.search.slice(1);
+
+        // 浣跨敤&绗﹀彿寰楀埌姣忎竴涓猭ey=val
+        var searchArr = search.split('&');
+        var tempArr = null;
+        var searchObj = {};
+
+        // 閬嶅巻鏁扮粍涓殑姣忎竴涓猭ey=val瀛楃涓诧紝浣跨敤=鍙峰妶寮?锛?
+        // 鐒跺悗浠ey涓哄悕锛寁al涓哄?兼坊鍔犲埌searchObj瀵硅薄涓??
+        for (var i = 0, len = searchArr.length; i < len; i++) {
+            tempArr = searchArr[i].split('=');
+            searchObj[tempArr[0]] = tempArr[1];
+        }
+
+        // 鏈夊弬鏁拌繑鍥炴寚瀹氬?硷紝娌℃湁鍙傛暟杩斿洖鍏ㄩ儴鍊?
+        return arguments.length ? searchObj[key] : searchObj;
+        //return searchObj;
+    },
+
+    extend: function () {
+
+    },
+    tap: function (dom, callback) {
+        /*鍒ゆ柇鏈夋病鏈変紶鍏om瀵硅薄*/
+        if (!dom || typeof dom != "object") {
+            return;
+        }
+        /*绉诲姩绔殑鍗曞嚮浜嬩欢涓?鑸娇鐢╰ouch鏉ユā鎷燂紝瀹冧竴鑸渶瑕佹弧瓒充袱涓潯浠?
+         * 1.涓嶈兘婊戝姩杩?
+         * 2.end鍜孲tart鐨勬椂闂村樊寮備竴鑸簲璇ュ湪150ms浠ュ唴锛屽鏋滃樊寮傚お澶э紝灏卞簲璇ユ槸longpress闀挎寜浜嬩欢*/
+        /*鏍囪鏄惁鏇剧粡婊戝姩杩?*/
+        var isMove = false;
+        /*璁板綍鎵嬫寚鎸変笅鐨勬椂闂?*/
+        var st = 0;
+        dom.addEventListener("touchstart", function (e) {
+            /*Date.now()锛氬畠鑾峰彇鐨勬槸姣鏁?*/
+            st = Date.now();
+        })
+        dom.addEventListener("touchmove", function (e) {
+            isMove = true;
+        })
+        dom.addEventListener("touchend", function (e) {
+            var et = Date.now();
+            /*鍒ゆ柇鏈鎿嶄綔鏄惁鏄崟鍑讳簨浠?*/
+            if (isMove == false && et - st < 150) {
+                callback && callback(e);
+            }
+            /*閲嶇疆*/
+            isMove = false;
+        });
+    },
+    addAnimationEnd: function (dom, callback) {
+        dom.addEventListener("webkitAnimationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("animationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("oAnimationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("msAnimationEnd", function () {
+            callback && callback();
+        });
+        dom.addEventListener("mozAnimationEnd", function () {
+            callback && callback();
+        });
+    },
+    //增加了一个时间戳  格式 ：  2017/03/09 14:30:55
+    fnTime:function () {
+        var myTime = new Date(); //类型 => object;
+        var iYear = myTime.getFullYear();
+        var iMonth = myTime.getMonth() + 1;
+        //按数组来的，所以要加一；
+        var iDate = myTime.getDate(); //这个月天数
+        var iWeek = myTime.getDay();
+        //都是数字类型,0 天;
+        var iHours = myTime.getHours();
+        var iMinutes = myTime.getMinutes();
+        var iSeconds = myTime.getSeconds();
+        var str = '';
+        if (iWeek == 0)iWeek = '星期日';
+        if (iWeek == 1)iWeek = '星期一';
+        if (iWeek == 2)iWeek = '星期二';
+        if (iWeek == 3)iWeek = '星期三';
+        if (iWeek == 4)iWeek = '星期四';
+        if (iWeek == 5)iWeek = '星期五';
+        if (iWeek == 6)iWeek = '星期六';
+        str = iYear + '/' + toTwo(iMonth) + '/' + toTwo(iDate) + ' ' + toTwo(iHours) + ':' + toTwo(iMinutes) + ':' + toTwo(iSeconds);
+        function toTwo(n){
+            return n<10?'0'+n:''+n;
+        };
+        return str;
+    }
+}
+

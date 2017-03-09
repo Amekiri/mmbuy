@@ -1,0 +1,75 @@
+/**
+ * Created by Administrator on 2017/3/7.
+ */
+$(function () {
+    $.get("http://139.199.157.195:9090/api/getcategorybyid",{
+        categoryid:1
+    }, function (data) {
+        console.log()
+        $(".filterBox span:nth-of-type(2)").after(template("filterTemp", {list:data.result}))
+    });
+    //默认渲染页面
+    $.get("http://139.199.157.195:9090/api/getproductlist",{
+        categoryid:1,
+        pageid:1
+    }, function (data) {
+        console.log()
+        $(".productList ul").html(template("productlistTemp", {list:data.result}));
+        var pagesize = data.pagesize;
+        var totalCount = data.totalCount;
+        var pagetotal = Math.ceil(totalCount/pagesize);
+        var arr = [],a=1;
+        for(var i=0;i<pagetotal;i++){
+            arr.push({index:a});
+            a++;
+        };
+        $(".selectPage select").html(template("selectTemp", {list:arr}));
+
+        //改变页数发送请求改变页面内容
+        $("#pageNum").on("change", function () {
+            $.ajax({
+                type:"get",
+                url:"http://139.199.157.195:9090/api/getproductlist",
+                data:$(".form-data").serialize()+"&categoryid="+1,
+                success: function (data) {
+                    $(".productList ul").html(template("productlistTemp", {list:data.result}));
+                }
+            })
+        });
+        $("#pageNum option:nth-of-type(1)").attr("selected","selected");
+
+
+
+        //点击上下按钮翻页
+        $("#prev").click(function(){
+            //console.log($("#pageNum option:selected").removeAttr("selected").prev());
+            //console.log("点击了")
+            //console.log($("#pageNum option:selected").removeAttr("selected").prev().val())
+                //.removeAttr("selected"));
+            //console.log($("#pageNum option:selected").removeAttr("selected").prev().html());
+            $("#pageNum option:selected").removeAttr("selected").prev().attr("selected","selected");
+            //$.ajax({
+            //    type:"get",
+            //    url:"http://139.199.157.195:9090/api/getproductlist",
+            //    data:$(".form-data").serialize()+"&categoryid="+1,
+            //    success: function (data) {
+            //        $(".productList ul").html(template("productlistTemp", {list:data.result}));
+            //    }
+            //})
+        });
+        $("#next").click(function(){
+            $("#pageNum option:selected").removeAttr("selected").next().attr("selected","selected");
+            $.ajax({
+                type:"get",
+                url:"http://139.199.157.195:9090/api/getproductlist",
+                data:$(".form-data").serialize()+"&categoryid="+1,
+                success: function (data) {
+                    $(".productList ul").html(template("productlistTemp", {list:data.result}));
+                }
+            })
+        })
+
+
+
+    });
+})

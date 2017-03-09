@@ -1,0 +1,53 @@
+/*页面的内容部分*/
+.container {
+  padding: 0;
+  /*页面内容的商品列表部分*/
+  .save-list {
+    background-color: #fff;
+    font-size: 14px;
+    li {
+      padding: 14px 8px;
+      a {
+        display: block;
+        /*左边的图片部分*/
+        .picture {
+          float: left;
+          width: 110px;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        /*右边的产品信息部分*/
+        .info {
+          font-size: 14px;
+          line-height: 24px;
+          padding-left: 90px;
+          /*产品信息的上部分*/
+          .info-top {
+            color: #333;
+            font-size: 15px;
+            word-break: break-all;
+            height: 57px;
+            line-height: 19px;
+            text-align: left;
+            span {
+              color: #ff6c00;
+              display: inline;
+            }
+          }
+          /*产品信息的底部*/
+          .info-bottom {
+            margin-top: 8px;
+            .pro-source {
+              color: #a1a1a1;
+              font-size: 12px;
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

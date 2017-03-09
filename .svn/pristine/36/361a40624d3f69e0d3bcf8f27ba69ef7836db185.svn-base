@@ -1,0 +1,13 @@
+$(function () {
+    $.get("http://139.199.157.195:9090/api/getindexmenu", function (data) {
+        $(".main .nav-li-list").html(template("navListtemp",data));
+        $(".main .nav-li-list li:nth-last-child(-n+4)").hide();
+        $(".main .nav-li-list li:nth-last-child(5)").click(function () {
+            $(".main .nav-li-list li:nth-last-child(-n+4)").slideToggle();
+            return false;
+        })
+    })
+    $.get("http://139.199.157.195:9090/api/getmoneyctrl", function (data) {
+        $(".dcProduct ul").html(template("dcproductemp",data));
+    })
+})
