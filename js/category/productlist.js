@@ -76,7 +76,7 @@ $(function () {
                                 dataObj1[f] = dataArr1[f];
                             }
 
-                            console.log(dataObj1[0]);
+
                         },10);
 
                     };
